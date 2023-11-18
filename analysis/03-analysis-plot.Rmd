@@ -13,7 +13,7 @@ data <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
 
 The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+```{r message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Figure 1. Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
 other_rating<-data %>% select(iid,pid,attr) %>%
   group_by(pid) %>%
   summarise(attr_other_rating=mean(attr,na.rm = TRUE)) 
@@ -30,6 +30,8 @@ data %>%
   ggtitle('Distributions of Other Rating and Self Rating') 
 ```
 
+<br>
+
 The negative t-value (-8.5025) indicates that, on average, individuals tend to overestimate their own attractiveness compared to how others perceive them. The extremely low p-value (7.725e-16) supports the rejection of the null hypothesis, further emphasizing the substantial difference in self-perceived attractiveness.
 
 The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
@@ -45,18 +47,23 @@ data %>%
   t.test(x=.$diff,y=NULL,alternative='two.sided',mu=0,paired=FALSE)
 ```
 
-Additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all.
+<br>
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+An additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all.
+
+```{r message=FALSE, warning=FALSE, echo=FALSE, fig.cap="Figure 2. Contour plot of the relationship between self vs others' rating of attractiveness. The red dashed line (r = 0.2745) indicates a weak significant correlation between these two variables."}
 data %>% 
   ggplot(aes(x=attr_other_rating,y=attr5_1)) +
   geom_density_2d() +
+  geom_smooth(se = FALSE, method = "lm", linetype = "dashed", colour = "red") + 
   xlab('Self Rating') +
   ylab('Other Rating') +
   ggtitle('Contour Plot of Self Rating and Other Rating')
 ```
 
-The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 and smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation. 
+<br>
+
+The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation. 
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
 data %>% 

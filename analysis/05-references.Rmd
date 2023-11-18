@@ -3,7 +3,17 @@ title: "References"
 output: html_document
 ---
 
+Bale, C., & Archer, J. (2013). Self-Perceived Attractiveness, Romantic Desirability and Self-Esteem: A Mating Sociometer Perspective. Evolutionary Psychology, 11(1), 147470491301100. https://doi.org/10.1177/147470491301100107
+
+Faelens, L., Hoorelbeke, K., Cambier, R., Van Put, J., Van De Putte, E., De Raedt, R., & Koster, E. H. W. (2021, August 1). The relationship between Instagram use and indicators of mental health: A systematic review. https://doi.org/10.1016/j.chbr.2021.100121
+
+Feingold, A. (1992). Good-looking people are not what we think. Psychological Bulletin, 111(2), 304–341. https://doi.org/10.1037/0033-2909.111.2.304
+
 Fisman, R., Iyengar, S. S., Kamenica, E., & Simonson, I. (2006). Gender Differences in Mate Selection: Evidence From a Speed Dating Experiment*. The Quarterly Journal of Economics, 121(2), 673–697. https://doi.org/10.1162/qjec.2006.121.2.673
+
+Greitemeyer, T. (2020). Unattractive people are unaware of their (un)attractiveness. Scandinavian Journal of Psychology, 61(4), 471–483. https://doi.org/10.1111/sjop.12631
+
+Logg, J. M., Haran, U., & Moore, D. A. (2018). Is overconfidence a motivated bias? Experimental evidence. Journal of Experimental Psychology: General, 147(10), 1445–1465. https://doi.org/10.1037/xge0000500
 
 Müller, K. (2020). here: A Simpler Way to Find Your Files. https://CRAN.R-project.org/package=here
 
@@ -14,3 +24,4 @@ Vanschoren, J., van Rijn, J. N., Bischl, B., & Torgo, L. (2014). OpenML: Network
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686
 
 Xie, Y. (2023). knitr: A General-Purpose Package for Dynamic Report Generation in R. https://yihui.org/knitr/
+

@@ -1,0 +1,75 @@
+---
+title: "Analysis and Result"
+output: html_document
+---
+
+## Analysis
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(here)
+library(tidyverse)
+data <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
+```
+
+The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+data %>% select(iid,pid,attr,attr3_1,attr5_1,attr5_2,attr5_3) %>%
+  filter(!is.na(attr5_1)) %>%
+  group_by(iid,attr5_1) %>%
+  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) %>%
+  pivot_longer(cols = c(attr5_1,attr_other_rating),values_to = 'Score', names_to = 'Rating Type') %>%
+  ggplot(aes(x=`Rating Type`,y=Score)) +
+  geom_violin() +
+  stat_summary(fun.data = mean_cl_boot, geom = "errorbar", width = 0.2) +
+  scale_x_discrete(label=c('Other Rating','Self Rating')) +
+  ggtitle('Distributions of Other Rating and Self Rating') 
+```
+
+The negative t-value (-7.0355) indicates that, on average, individuals tend to overestimate their own attractiveness compared to how others perceive them. The extremely low p-value (1.256e-11) supports the rejection of the null hypothesis, further emphasizing the substantial difference in self-perceived attractiveness.
+
+The 95 percent confidence interval for the true mean difference is (-0.9838924, -0.5538447). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+data %>% select(iid,pid,attr,attr3_1,attr5_1,attr5_2,attr5_3) %>%
+  filter(!is.na(attr5_1)) %>%
+  group_by(iid,attr5_1) %>%
+  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) %>%
+  t.test(x=.$attr_other_rating,y=.$attr5_1,alternative='two.sided',paired = TRUE,mu=0)
+```
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+data %>% select(iid,pid,attr,attr3_1,attr5_1,attr5_2,attr5_3) %>%
+  filter(!is.na(attr5_1)) %>%
+  group_by(iid,attr5_1) %>%
+  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) %>%
+  mutate(diff=attr_other_rating-attr5_1) %>%
+  t.test(x=.$diff,y=NULL,alternative='two.sided',mu=0,paired=FALSE)
+```
+
+Additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all.
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+data %>% select(iid,pid,attr,attr3_1,attr5_1,attr5_2,attr5_3) %>%
+  filter(!is.na(attr5_1)) %>%
+  group_by(iid,attr5_1) %>%
+  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) %>%
+  ggplot(aes(x=attr_other_rating,y=attr5_1)) +
+  geom_density_2d() +
+  xlab('Self Rating') +
+  ylab('Other Rating') +
+  ggtitle('Contour Plot of Self Rating and Other Rating')
+```
+
+The p-value of 0.9288 is greater than the commonly used significance level of 0.05. Therefore, we do not have sufficient evidence to reject the null hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval includes 0, further supporting the lack of evidence for a significant correlation.
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+data %>% select(iid,pid,attr,attr3_1,attr5_1,attr5_2,attr5_3) %>%
+  filter(!is.na(attr5_1)) %>%
+  group_by(iid,attr5_1) %>%
+  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) %>%
+  mutate(diff=attr_other_rating-attr5_1) %>%
+  cor.test(x=.$attr_other_rating,y=.$attr5_1,alternative='greater',method='pearson')
+```
+
+In summary, the numerical results strongly support the conclusion that individuals have a tendency to be overly confident in their self-perceived attractiveness. The statistical evidence indicates a significant pattern of overestimation. In fact, further analysis shows that self-ratings and others' ratings of attractiveness are not even correlated at all. These findings shed a light on the dynamics of self-perception in social contexts.

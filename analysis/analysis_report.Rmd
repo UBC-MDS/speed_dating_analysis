@@ -1,149 +1,29 @@
----
-title: "Examining Differences in Self vs Others’ Perception of Attractiveness"
+---  
+title: "Examining Differences in Self vs Others' Perception of Attractiveness"
 author: "Michelle Hunn, Wenyu Nie, Rory White, Mona Zhu"
-date: "2023-11-16"
 output: 
   html_document:
-    toc: true
-    toc_depth: 2
+    toc: yes 
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Introduction
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r child = '01-Introduction.Rmd'}
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 # Methods
-## Data
 
-The dataset used in this project were obtained from a series of speed dating studies led by Dr. Ray Fisman and Dr. Sheena Iyengar conducted between 2002 and 2004 at Columbia University (Fisman et al., 2006). Data were collected across 21 different sessions (known as “waves” in the dataset). Data was sourced from DataHub and can be found ![here](https://datahub.io/machine-learning/speed-dating).
-
-In the experiment, men and women went on a speed dating rotation where they interacted and subsequently rated each other on 6 attributes: attractive, sincere, intelligent, fun, ambitious, and shared interest/hobbies. Critically, they were also asked to report whether they would see this person again or not. In addition to rating the other party, each participant also rated themselves on 5 of the 6 attributes (attractive, sincere, intelligent, fun, ambitious). Specifically, they were asked to rate how they measured up to each attribute, as well as how they thought others perceived them.
-
-An observation or row in the data represents one set of ratings per ratee. For instance, if an individual saw 10 different partners in the session, then that individual would make 10 different ratings, one for each partner they interacted with at the event.
-
-
-## Analysis
-
-We conducted a one-sample t-test to answer our research question (whether self-perception of attractiveness is accurate). Since observations in the original raw dataset violated assumptions of independence (i.e., each rater made multiple ratings and each ratee received multiple ratings), we decided to first process the data by averaging how each rater rated the attractiveness of each ratee. We then calculated a difference score by subtracting how others perceived an individual’s attractiveness from an individual’s rating of their own perceived attractiveness by others (i.e., own perception – other perception). As such, a positive score indicates that an individual was overly confident in their own perceived attractiveness.
-
-Analysis and graphs were produced using the R programming language (R Core Team 2019) as well as the following R packages: tidyverse (Wickham 2019), knitr (Xie 2023). For the full code used to produce this report and analyses, please see: https://github.com/wenyunie/speed_dating_analysis.
+```{r child = '02-methods.Rmd'}
+```
 
 # Data Analysis
-## Difference Test
-```{r message=FALSE, warning=FALSE, include=FALSE}
-library(here)
-library(tidyverse)
-data <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
+
+```{r child = '03-analysis-plot.Rmd'}
 ```
 
-The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-other_rating<-data %>% select(iid,pid,attr) %>%
-  group_by(pid) %>%
-  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) 
-self_rating<-data %>% select(iid,attr5_1) %>% unique() %>% filter(!is.na(attr5_1))
-
-data <- merge(other_rating,self_rating,by.x='pid',by.y='iid')
-
-data %>%
-  pivot_longer(cols = c(attr5_1,attr_other_rating),values_to = 'Score', names_to = 'Rating Type') %>%
-  ggplot(aes(x=`Rating Type`,y=Score)) +
-  geom_violin() +
-  stat_summary(fun.data = mean_cl_boot, geom = "errorbar", width = 0.2) +
-  scale_x_discrete(label=c('Other Rating','Self Rating')) +
-  ggtitle('Distributions of Other Rating and Self Rating') 
+```{r child = '04-Discussion.Rmd'}
 ```
-
-The negative t-value (-8.5025) indicates that, on average, individuals tend to overestimate their own attractiveness compared to how others perceive them. The extremely low p-value (7.725e-16) supports the rejection of the null hypothesis, further emphasizing the substantial difference in self-perceived attractiveness.
-
-The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  t.test(x=.$attr_other_rating,y=.$attr5_1,alternative='two.sided',paired = TRUE,mu=0)
-```
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  mutate(diff=attr_other_rating-attr5_1) %>%
-  t.test(x=.$diff,y=NULL,alternative='two.sided',mu=0,paired=FALSE)
-```
-
-## Correlation Test
-Additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all.
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  ggplot(aes(x=attr_other_rating,y=attr5_1)) +
-  geom_density_2d() +
-  xlab('Self Rating') +
-  ylab('Other Rating') +
-  ggtitle('Contour Plot of Self Rating and Other Rating')
-```
-
-The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 and smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation. 
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  cor.test(x=.$attr_other_rating,y=.$attr5_1,alternative='greater',method='pearson')
-```
-
-In summary, the numerical results strongly support the conclusion that individuals have a tendency to be overly confident in their self-perceived attractiveness. The statistical evidence indicates a significant pattern of overestimation. However, further analysis shows that self-ratings and others' ratings of attractiveness have at least a small correlation. These findings shed a light on the dynamics of self-perception in social contexts.
-
-# Discussion
-
-## Interpretation
-These findings echo existing research on self-perceived physical attractiveness. A meta-analysis of 21 studies found that self-perceived physical attractiveness correlates weakly (r=0.24) with physical attractiveness judged by others (Feingold, 1992). This is consistent with the ‘above-average-effect’ in human psychology, where individuals overestimate personal traits like attractiveness and intelligence compared to objective measures (Logg, Haran & Moore, 2018). 
-
-This strong contextual backing gives greater confidence in the generalizability of our findings, despite the applicability of our statistical findings being limited to university students in a speed dating environment. Our 95% confidence interval of between 0.60 and 0.97 points out of 10 represents an overestimation magnitude of 6.0% to 9.7%. This is consistent with the magnitude observed in multiple studies of university students (Greitemeyer, 2020). In general, perception of physical attractiveness is deeply influenced by cultural norms and life experiences - there is no truly objective measure. Here, the opinions of 6 to 22 different raters were mean-averaged to create a consensus score. To increase the robustness of the findings, additional analyses might include applying weights to participant diversity and exploring alternative consensus metrics, such as the median score.
-
-## Implications
-Overestimating one's attractiveness has complex psychological implications. People with a higher self-perception of attractiveness tend to have better self-esteem, which positively influences their mental health and overall happiness (Bale & Archer, 2013). Yet, an inflated sense of attractiveness may cause misinterpretations of social cues and foster unrealistic relationship expectations, potentially causing social challenges. An interesting avenue of future research could be assessing interventions aimed at aligning self-perception with a more realistic view - though this could have negative mental health consequences. 
-
-## Future work
-Considering the 2004 data collection, there's significant scope for follow-up research to reflect current influences. In particular, the invention of social media has created an environment where individuals are exposed to heavily edited and idealized images, leading to a potential "Instagram effect” on self-perception norms (Faelens et al., 2021). The existing data set also holds a wealth of unexplored dimensions. By expanding our self-perception analysis to include sincerity and intelligence, we could explore whether the trend of overestimating one's physical attractiveness correlates with similar biases in these other domains. Incorporating the existing data on personality, occupation, and age could enable a comprehensive multivariate analysis. Such an approach would provide deeper insights into how they collectively shape and influence the discrepancies in self-perception.
 
 # References
-Bale, C., & Archer, J. (2013). Self-Perceived Attractiveness, Romantic Desirability and Self-Esteem: A Mating Sociometer Perspective. Evolutionary Psychology, 11(1), 147470491301100. https://doi.org/10.1177/147470491301100107
 
-Faelens, L., Hoorelbeke, K., Cambier, R., Van Put, J., Van De Putte, E., De Raedt, R., & Koster, E. H. W. (2021, August 1). The relationship between Instagram use and indicators of mental health: A systematic review. https://doi.org/10.1016/j.chbr.2021.100121
-
-Feingold, A. (1992). Good-looking people are not what we think. Psychological Bulletin, 111(2), 304–341. https://doi.org/10.1037/0033-2909.111.2.304
-
-Fisman, R., Iyengar, S. S., Kamenica, E., & Simonson, I. (2006). Gender Differences in Mate Selection: Evidence From a Speed Dating Experiment*. The Quarterly Journal of Economics, 121(2), 673–697. https://doi.org/10.1162/qjec.2006.121.2.673
-
-Greitemeyer, T. (2020). Unattractive people are unaware of their (un)attractiveness. Scandinavian Journal of Psychology, 61(4), 471–483. https://doi.org/10.1111/sjop.12631
-
-Logg, J. M., Haran, U., & Moore, D. A. (2018). Is overconfidence a motivated bias? Experimental evidence. Journal of Experimental Psychology: General, 147(10), 1445–1465. https://doi.org/10.1037/xge0000500
-
-Müller, K. (2020). here: A Simpler Way to Find Your Files. https://CRAN.R-project.org/package=here
-
-R Core Team. (2019). R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing. https://www.R-project.org
-
-Vanschoren, J., van Rijn, J. N., Bischl, B., & Torgo, L. (2014). OpenML: Networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49–60. https://doi.org/10.1145/2641190.2641198
-
-Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686
-
-Xie, Y. (2023). knitr: A General-Purpose Package for Dynamic Report Generation in R. https://yihui.org/knitr/
+```{r child = '05-references.Rmd'}
+```

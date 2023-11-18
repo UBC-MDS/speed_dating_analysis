@@ -1,0 +1,16 @@
+---
+title: "References"
+output: html_document
+---
+
+Fisman, R., Iyengar, S. S., Kamenica, E., & Simonson, I. (2006). Gender Differences in Mate Selection: Evidence From a Speed Dating Experiment*. The Quarterly Journal of Economics, 121(2), 673–697. https://doi.org/10.1162/qjec.2006.121.2.673
+
+Müller, K. (2020). here: A Simpler Way to Find Your Files. https://CRAN.R-project.org/package=here
+
+R Core Team. (2019). R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing. https://www.R-project.org
+
+Vanschoren, J., van Rijn, J. N., Bischl, B., & Torgo, L. (2014). OpenML: Networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49–60. https://doi.org/10.1145/2641190.2641198
+
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J., Robinson, D., Seidel, D. P., Spinu, V., … Yutani, H. (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686
+
+Xie, Y. (2023). knitr: A General-Purpose Package for Dynamic Report Generation in R. https://yihui.org/knitr/

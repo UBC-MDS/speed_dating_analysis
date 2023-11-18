@@ -1,0 +1,10 @@
+---
+title: "Introduction"
+author: "MH"
+date: "2023-11-16"
+output: html_document
+---
+
+## Introduction
+
+In the unpredictable dance of dating, where first impressions can set the stage for romantic connections, we want to investigate whether one's self-perceived attractiveness aligns with the external judgments rendered by potential romantic partners. Research has been conducted to examine how attractiveness impacts dating behavior (Walster et al., 1966). Multiple studies specifically investigated the perception of one's own attractiveness and the attractiveness of romantic partners. In this context, a "love-is-blind" bias was identified, indicating that individuals tend to perceive their romantic partners as more attractive than they perceive themselves (Swami et al., 2007; Swami et al., 2009). In our research, the focus lies on investigating whether self-perceived attractiveness deviates from objective attractiveness. In this context, we define objective attractiveness as the average ratings from various potential dating partners. The insights gained from this research are intended to help understand how aligned people's self-perception is with an objective rating in the context of attractiveness.

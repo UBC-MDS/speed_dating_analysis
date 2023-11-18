@@ -16,7 +16,7 @@ An observation or row in the data represents one set of ratings per ratee. For i
 
 We conducted a one-sample t-test to answer our research question (whether self-perception of attractiveness is accurate). Since observations in the original raw dataset violated assumptions of independence (i.e., each rater made multiple ratings and each ratee received multiple ratings), we decided to first process the data by averaging how each rater rated the attractiveness of each ratee. We then calculated a difference score by subtracting how others perceived an individual’s attractiveness from an individual’s rating of their own perceived attractiveness by others (i.e., own perception – other perception). As such, a positive score indicates that an individual was overly confident in their own perceived attractiveness.
 
-Analysis and graphs were produced using the R programming language (R Core Team 2019) as well as the following R packages: tidyverse (Wickham 2017), knitr (Xie 2014). For the full code used to produce this report and analyses, please see: https://github.com/wenyunie/speed_dating_analysis.
+Analysis and graphs were produced using the R programming language (R Core Team 2019) as well as the following R packages: tidyverse (Wickham 2019), knitr (Xie 2023). For the full code used to produce this report and analyses, please see: https://github.com/wenyunie/speed_dating_analysis.
 
 
 

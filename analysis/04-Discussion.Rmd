@@ -1,12 +1,12 @@
-## Discussion
+# Discussion
 
-### Interpretation
+## Interpretation
 These findings echo existing research on self-perceived physical attractiveness. A meta-analysis of 21 studies found that self-perceived physical attractiveness correlates weakly (r=0.24) with physical attractiveness judged by others (Feingold, 1992). This is consistent with the ‘above-average-effect’ in human psychology, where individuals overestimate personal traits like attractiveness and intelligence compared to objective measures (Logg, Haran & Moore, 2018). 
 
 This strong contextual backing gives greater confidence in the generalizability of our findings, despite the applicability of our statistical findings being limited to university students in a speed dating environment. Our 95% confidence interval of between 0.60 and 0.97 points out of 10 represents an overestimation magnitude of 6.0% to 9.7%. This is consistent with the magnitude observed in multiple studies of university students (Greitemeyer, 2020). In general, perception of physical attractiveness is deeply influenced by cultural norms and life experiences - there is no truly objective measure. Here, the opinions of 6 to 22 different raters were mean-averaged to create a consensus score. To increase the robustness of the findings, additional analyses might include applying weights to participant diversity and exploring alternative consensus metrics, such as the median score.
 
-### Implications
+## Implications
 Overestimating one's attractiveness has complex psychological implications. People with a higher self-perception of attractiveness tend to have better self-esteem, which positively influences their mental health and overall happiness (Bale & Archer, 2013). Yet, an inflated sense of attractiveness may cause misinterpretations of social cues and foster unrealistic relationship expectations, potentially causing social challenges. An interesting avenue of future research could be assessing interventions aimed at aligning self-perception with a more realistic view - though this could have negative mental health consequences. 
 
-### Future work
+## Future work
 Considering the 2004 data collection, there's significant scope for follow-up research to reflect current influences. In particular, the invention of social media has created an environment where individuals are exposed to heavily edited and idealized images, leading to a potential "Instagram effect” on self-perception norms (Faelens et al., 2021). The existing data set also holds a wealth of unexplored dimensions. By expanding our self-perception analysis to include sincerity and intelligence, we could explore whether the trend of overestimating one's physical attractiveness correlates with similar biases in these other domains. Incorporating the existing data on personality, occupation, and age could enable a comprehensive multivariate analysis. Such an approach would provide deeper insights into how they collectively shape and influence the discrepancies in self-perception.

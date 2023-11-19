@@ -5,7 +5,10 @@ output:
   html_document:
     toc: yes 
 ---
-# Introduction
+
+```{r child = '00-Summary.Rmd'}
+```
+
 
 ```{r child = '01-Introduction.Rmd'}
 ```

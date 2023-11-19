@@ -4,9 +4,9 @@ Authors: Michelle Hunn, Wenyu Nie, Rory White, Mona Zhu
 
 ## About
 
-This repo is created for a group project for analyzing speed dating data set for MDS DSCI 522
+This repo is created for a group project for analyzing speed dating data set for MDS DSCI 522.
 
-**Insert Summary**
+This research delves into the dynamics of self-perceived attractiveness in the context of dating. We explore whether individuals accurately gauge their own appeal compared to external judgments. Analyzing data from speed dating studies, the findings reveal a systematic tendency for individuals to overestimate their attractiveness. While a significant correlation exists between self-ratings and others' ratings, this research underscores the interplay between self-perception and external judgments in the realm of dating. The implications range from improved self-esteem for those perceiving themselves as more attractive to potential challenges in social interactions. Future research could investigate the influence of contemporary factors like social media on self-perception and exploring the multidimensional aspects of attractiveness.
 
 The dataset used in this project were obtained from a series of speed dating studies led by Dr. Ray Fisman and Dr. Sheena Iyengar conducted between 2002 and 2004 at Columbia University (Fisman et al., 2006). Data were collected across 21 different sessions (known as “waves” in the dataset). Data was sourced from DataHub and can be found ![here](https://datahub.io/machine-learning/speed-dating).
 
@@ -27,7 +27,7 @@ To run the code for the analysis, open `analysis/report.Rmd` through Rstudio and
 ## Dependencies
 
 * `R` (version 4.3.1 or higher)
-* R packages listed in `renv.lock` **LINK TO RENV FILE**
+* R packages listed in ![`renv.lock`](https://github.com/wenyunie/speed_dating_analysis/blob/main/renv.lock)
 
 ## License
 

@@ -5,7 +5,7 @@ output: html_document
 
 ## Data
 
-The dataset used in this project were obtained from a series of speed dating studies led by Dr. Ray Fisman and Dr. Sheena Iyengar conducted between 2002 and 2004 at Columbia University (Fisman et al., 2006). Data were collected across 21 different sessions (known as “waves” in the dataset). Data was sourced from DataHub and can be found ![here](https://datahub.io/machine-learning/speed-dating).
+The dataset used in this project were obtained from a series of speed dating studies led by Dr. Ray Fisman and Dr. Sheena Iyengar conducted between 2002 and 2004 at Columbia University (Fisman et al., 2006). Data were collected across 21 different sessions (known as “waves” in the dataset). Data was sourced from OpenML (Vanschoren et al., 2014) and can be found [here](http://www.stat.columbia.edu/~gelman/arm/examples/speed.dating/).
 
 In the experiment, men and women went on a speed dating rotation where they interacted and subsequently rated each other on 6 attributes: attractive, sincere, intelligent, fun, ambitious, and shared interest/hobbies. Critically, they were also asked to report whether they would see this person again or not. In addition to rating the other party, each participant also rated themselves on 5 of the 6 attributes (attractive, sincere, intelligent, fun, ambitious). Specifically, they were asked to rate how they measured up to each attribute, as well as how they thought others perceived them.
 

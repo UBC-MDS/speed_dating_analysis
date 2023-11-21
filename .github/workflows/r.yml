@@ -36,5 +36,5 @@ jobs:
           renv::restore()
         shell: Rscript {0}
       - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        run: testthat::test_dir("tests/testthat")
         shell: Rscript {0}

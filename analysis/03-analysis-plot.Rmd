@@ -9,7 +9,6 @@ output: html_document
 library(here)
 library(tidyverse)
 source("../R/t_test.R")
-source("../R/contour_plot.R")
 data <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
 ```
 
@@ -51,8 +50,13 @@ our_t_test(data,attr_other_rating,attr5_1,version='diff')
 An additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all.
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE, fig.cap="Figure 2. Contour plot of the relationship between self vs others' rating of attractiveness. The red dashed line (r = 0.2745) indicates a weak significant correlation between these two variables."}
-
-contour_plot_function(data, attr_other_rating, attr5_1, 'Self Rating', 'Other Rating')
+data %>% 
+  ggplot(aes(x=attr_other_rating,y=attr5_1)) +
+  geom_density_2d() +
+  geom_smooth(se = FALSE, method = "lm", linetype = "dashed", colour = "red") + 
+  xlab('Self Rating') +
+  ylab('Other Rating') +
+  ggtitle('Contour Plot of Self Rating and Other Rating')
 ```
 
 <br>

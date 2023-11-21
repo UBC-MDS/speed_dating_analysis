@@ -32,12 +32,6 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install Depedencies
         uses: r-lib/actions/setup-r-dependencies@v2
-        with: 
-          extra-packages: |
-            any::ggplot2
-            any::here
-            any::testthat
-            any::tidyverse
       - name: Check
         run: testthat::test_dir("tests/testthat")
         shell: Rscript {0}

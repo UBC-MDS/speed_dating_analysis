@@ -32,8 +32,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("remotes", "rcmdcheck","renv"))
-          renv::restore()
+          install.packages(c("ggplot2","tidyverse","testthat"))
         shell: Rscript {0}
       - name: Check
         run: testthat::test_dir("tests/testthat")

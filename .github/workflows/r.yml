@@ -32,7 +32,7 @@ jobs:
           r-version: ${{ matrix.r-version }}
       - name: Install dependencies
         run: |
-          install.packages(c("testthat"))
+          install.packages(c("here","ggplot2","tidyverse","testthat"))
         shell: Rscript {0}
       - name: Check
         run: testthat::test_dir("tests/testthat")

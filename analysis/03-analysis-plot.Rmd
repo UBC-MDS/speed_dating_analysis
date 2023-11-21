@@ -8,6 +8,7 @@ output: html_document
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(here)
 library(tidyverse)
+source("../R/t_test.R")
 data <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
 ```
 
@@ -37,14 +38,11 @@ The negative t-value (-8.5025) indicates that, on average, individuals tend to o
 The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  t.test(x=.$attr_other_rating,y=.$attr5_1,alternative='two.sided',paired = TRUE,mu=0)
+our_t_test(data,attr_other_rating,attr5_1,version='paired')
 ```
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  mutate(diff=attr_other_rating-attr5_1) %>%
-  t.test(x=.$diff,y=NULL,alternative='two.sided',mu=0,paired=FALSE)
+our_t_test(data,attr_other_rating,attr5_1,version='diff')
 ```
 
 <br>
@@ -63,7 +61,7 @@ data %>%
 
 <br>
 
-The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation. 
+The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
 data %>% 

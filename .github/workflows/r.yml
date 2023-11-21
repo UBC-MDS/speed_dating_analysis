@@ -12,7 +12,7 @@ on:
   push:
     branches: [ "CI-for-R-with-github-workflow" ]
   pull_request:
-    branches: [ "CI-for-R-with-github-workflow" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read

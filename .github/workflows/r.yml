@@ -30,8 +30,7 @@ jobs:
         uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
         with:
           r-version: ${{ matrix.r-version }}
-      - name: Install Depedencies
-        uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-renv@v2
       - name: Check
         run: testthat::test_dir("tests/testthat")
         shell: Rscript {0}

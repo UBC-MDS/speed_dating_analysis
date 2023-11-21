@@ -8,20 +8,14 @@ output: html_document
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(here)
 library(tidyverse)
+source("../R/clean_speed_dating_dat.R")
 source("../R/t_test.R")
-data <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
+data <- clean_speed_dating_dat()
 ```
 
 The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Figure 1. Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
-other_rating<-data %>% select(iid,pid,attr) %>%
-  group_by(pid) %>%
-  summarise(attr_other_rating=mean(attr,na.rm = TRUE)) 
-self_rating<-data %>% select(iid,attr5_1) %>% unique() %>% filter(!is.na(attr5_1))
-
-data <- merge(other_rating,self_rating,by.x='pid',by.y='iid')
-
 data %>%
   pivot_longer(cols = c(attr5_1,attr_other_rating),values_to = 'Score', names_to = 'Rating Type') %>%
   ggplot(aes(x=`Rating Type`,y=Score)) +

@@ -5,12 +5,12 @@ test_that("t test should return a htest object", {
   expect_s3_class(our_t_test(data,a,b), "htest")
 })
 
-test_that("t test should return the right test result", {
+test_that("t test should return the correct test type", {
   expect_equivalent(our_t_test(data, a, b, version = 'paired')$method, paired_test_method_output)
   expect_equivalent(our_t_test(data, a, b, version = 'diff')$method, diff_test_method_output)
 })
 
-test_that("t test should return the right test result", {
+test_that("t test should return the correct test result", {
   expect_equivalent(our_t_test(data, a, b, version = 'paired')$statistic, paired_test_statistic_output)
   expect_equivalent(our_t_test(data, a, b, version = 'diff')$statistic, diff_test_statistic_output)
   expect_equivalent(our_t_test(data, a, b, version = 'paired')$p.value, paired_test_p_output)

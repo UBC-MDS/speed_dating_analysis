@@ -10,9 +10,9 @@ name: R
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "CI-for-R-with-github-workflow" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "CI-for-R-with-github-workflow" ]
 
 permissions:
   contents: read

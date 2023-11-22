@@ -11,6 +11,7 @@ library(tidyverse)
 source("../R/clean_speed_dating_dat.R")
 source("../R/t_test.R")
 source("../R/contour_plot.R")
+source("../R/pearson_corr.R")
 data <- clean_speed_dating_dat()
 ```
 
@@ -54,8 +55,7 @@ contour_plot_function(data, attr_other_rating, attr5_1, 'Self Rating', 'Other Ra
 The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-data %>% 
-  cor.test(x=.$attr_other_rating,y=.$attr5_1,alternative='greater',method='pearson')
+pearson_corr(data, attr_other_rating, attr5_1, alternative='greater')
 ```
 
 In summary, the numerical results strongly support the conclusion that individuals have a tendency to be overly confident in their self-perceived attractiveness. The statistical evidence indicates a significant pattern of overestimation. However, further analysis shows that self-ratings and others' ratings of attractiveness have at least a small correlation. These findings shed a light on the dynamics of self-perception in social contexts.

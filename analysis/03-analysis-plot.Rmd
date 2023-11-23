@@ -13,7 +13,12 @@ source("../R/clean_speed_dating_dat.R")
 source("../R/t_test.R")
 source("../R/contour_plot.R")
 source("../R/pearson_corr.R")
-data <- clean_speed_dating_dat()
+
+# load data
+raw <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
+
+# data cleaning
+data <- clean_speed_dating_dat(raw)
 ```
 
 The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.

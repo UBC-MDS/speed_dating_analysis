@@ -1,0 +1,9 @@
+services:
+  analysis-env:
+    image: wenyunie/dsci522-rocker-speed-dating:milestone2  # This is going to be replaced by our customized computational environment image
+    ports:
+      - "8787:8787"
+    volumes:
+      - .:/home/rstudio
+    environment:
+      PASSWORD: key_to_dating

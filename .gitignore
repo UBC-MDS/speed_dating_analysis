@@ -166,3 +166,6 @@ cython_debug/
 .Rproj.user
 .RData
 .RHistory
+.config/
+.local/
+.sh_history

@@ -23,12 +23,25 @@ When running this project for the first time, double click on the `.Rproj` file 
 renv::restore()
 ```
 
-To run the code for the analysis, open `analysis/report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All".
+To run the code for the analysis, open `analysis/report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
+
+Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the Containerization section.
 
 ## Dependencies
 
 * `R` (version 4.3.1 or higher)
 * R packages listed in [`renv.lock`](https://github.com/wenyunie/speed_dating_analysis/blob/main/renv.lock)
+
+## Containerization
+
+* A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment.
+* Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by:
+  * Install the latest version of [Docker engine](https://docs.docker.com/engine/install/)
+  * Download this project
+  * In the terminal, under the project root folder, run `docker-compose up -d`
+  * In the web browser, go to `localhost:8787`
+  * Log into Rstudio Server with username `rstudio` and password `key_to_dating`
+  * The project is in there for you to further explore!
 
 ## License
 

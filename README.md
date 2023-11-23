@@ -39,7 +39,8 @@ Users who find it difficult to manually reproduce the environment for running th
   * Install the latest version of [Docker engine](https://docs.docker.com/engine/install/)
   * Download this project
   * In the terminal, under the project root folder, run `docker-compose up -d`
-  * Go to 'localhost:8787' and log into Rstudio Server with username `rstudio` and password `key_to_dating`
+  * In the web browser, go to `localhost:8787`
+  * Log into Rstudio Server with username `rstudio` and password `key_to_dating`
   * The project is in there for you to further explore!
 
 ## License

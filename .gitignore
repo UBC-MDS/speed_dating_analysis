@@ -160,12 +160,12 @@ cython_debug/
 #.idea/
 
 # ignore files related to the data
-.csv
-.doc
-.docx
+# .csv
+**.doc
+**.docx
 .Rproj.user
-.RData
-.RHistory
-.config/
-.local/
-.sh_history
+**.RData
+**.RHistory
+**.config/
+**.local/
+**.sh_history

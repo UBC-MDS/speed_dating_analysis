@@ -1,7 +1,7 @@
 #!bin/bash
 
 # create process for data cleaning, output cleaned file
-Rscript "script_name.R"
+Rscript R/01-data_cleaning_process.R data/Speed_Dating_Data.csv
 
 # data analysis - t-test
 

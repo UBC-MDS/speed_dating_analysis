@@ -14,5 +14,6 @@ Rscript R/03-pearson_process.R output/data/cleaned_data.csv attr_other_rating at
 Rscript R/04-contour_plot.R attr_other_rating attr5_1 'Self Rating' 'Other Rating'
 
 # data vis for - t-test
+Rscript R/05-group_comparison_violin_plot.R --self_score attr5_1 --other_score attr_other_rating
 
 # rendering the final report Rmd file

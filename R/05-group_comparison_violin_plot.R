@@ -1,6 +1,6 @@
 "This script takes the cleaned data set and plots a violin plot that captures the distribution of the self- vs other-ratings for one of five attributes (attractive, sincere, intelligent, fun, ambitious).
 
-Usage: 05-group_comparison_violin_plot.R <self_score> <other_score>
+Usage: 05-group_comparison_violin_plot.R --self_score=<self_score> --other_score=<other_score>
 " -> doc
 
 library(docopt)

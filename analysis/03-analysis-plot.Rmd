@@ -13,6 +13,7 @@ source("../R/clean_speed_dating_dat.R")
 source("../R/t_test.R")
 source("../R/contour_plot.R")
 source("../R/pearson_corr.R")
+source("../R/group_comparison_violin_plot.R")
 
 # load data
 raw <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
@@ -24,13 +25,7 @@ data <- clean_speed_dating_dat(raw)
 The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Figure 1. Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
-data %>%
-  pivot_longer(cols = c(attr5_1,attr_other_rating),values_to = 'Score', names_to = 'Rating Type') %>%
-  ggplot(aes(x=`Rating Type`,y=Score)) +
-  geom_violin() +
-  stat_summary(fun.data = mean_cl_boot, geom = "errorbar", width = 0.2) +
-  scale_x_discrete(label=c('Other Rating','Self Rating')) +
-  ggtitle('Distributions of Other Rating and Self Rating') 
+group_violin_plot(data, self_score = attr5_1, other_score = attr_other_rating)
 ```
 
 <br>

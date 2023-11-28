@@ -8,6 +8,7 @@ Rscript R/02-script_t_test.R --filename output/data/cleaned_data.csv --colname1 
 Rscript R/02-script_t_test.R --filename output/data/cleaned_data.csv --colname1 attr_other_rating --colname2 attr5_1 --method diff --output output/ttest_paired.RDS
 
 # data analzsis - pearson correlation
+Rscript R/03-pearson_process.R output/data/cleaned_data.csv attr_other_rating attr5_1 "greater"
 
 # data vis - contour plot
 Rscript R/04-contour_plot.R attr_other_rating attr5_1 'Self Rating' 'Other Rating'

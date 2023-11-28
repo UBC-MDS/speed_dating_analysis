@@ -25,7 +25,7 @@ clean_speed_dating_dat <- function(dat){
     dplyr::select(pid, attr:amb) |> 
     dplyr::group_by(pid) |> 
     dplyr::summarise(dplyr::across(c(attr:amb), ~mean(., na.rm = TRUE))) |> 
-    dplyr::rename_at(vars(attr:amb), ~ paste0(., "_other_rating")) -> other_rating
+    dplyr::rename_at(dplyr::vars(attr:amb), ~ paste0(., "_other_rating")) -> other_rating
   
   # obtaining self rating  
   dat |> 

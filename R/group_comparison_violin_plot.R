@@ -13,11 +13,10 @@
 #' group_violin_plot(data, self_score = attr5_1, other_score = attr_other_rating)
 group_violin_plot <- function(data, self_score, other_score) {
 
-  if (!(substr(deparse(self_score), 1, 3) == substr(deparse(other_score), 1, 3))){
+  if (!(substr(deparse(substitute(self_score)), 1, 3) == substr(deparse(substitute(other_score)), 1, 3))){
     stop("Did you enter the same attributes?")
   }
-  if (!(grepl("other", deparse(other_score)) == 1 &
-        grepl("5_1", deparse(self_score)) == 1)){
+  if (deparse(substitute(self_score)) == deparse(substitute(other_score))) {
     stop("Did you you enter both a self and other rating?")
   }
   data |> 

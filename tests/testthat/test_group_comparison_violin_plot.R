@@ -6,8 +6,8 @@ source(paste0(here(), "/tests/testthat/helper_group_comparison_violin_plot.R"))
 test_that("Check if the correct columns are entered", {
   expect_error(group_violin_plot(df, self_score = attr5_1, other_score = attr5_1),
                "Did you you enter both a self and other rating?")
-  expect_error(group_violin_plot(df, self_score = attr5_1, other_score = attr5_1),
-               "Did you enter the same attributes?")
+  expect_error(group_violin_plot(df, self_score = attr5_1, other_score = fun_other_rating),
+               "Did you enter the correct attributes?")
 })
 
 # Check output

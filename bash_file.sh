@@ -10,6 +10,7 @@ Rscript R/02-script_t_test.R --filename output/data/cleaned_data.csv --colname1 
 # data analzsis - pearson correlation
 
 # data vis - contour plot
+Rscript R/04-contour_plot.R attr_other_rating attr5_1 'Self Rating' 'Other Rating'
 
 # data vis for - t-test
 

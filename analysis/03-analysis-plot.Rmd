@@ -40,11 +40,13 @@ The negative t-value (-8.5025) indicates that, on average, individuals tend to o
 The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
+# result_paired_test = readRDS(paste0(here(),'/output/ttest_paired.RDS'))
 result_paired_test = our_t_test(data,attr_other_rating,attr5_1,version='paired')
 tidy(result_paired_test)
 ```
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
+# result_paired_test = readRDS(paste0(here(),'/output/ttest_diff.RDS'))
 result_diff_test = our_t_test(data,attr_other_rating,attr5_1,version='diff')
 tidy(result_diff_test)
 ```

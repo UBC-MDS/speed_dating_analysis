@@ -12,5 +12,5 @@ source(paste0(here(), "/R/contour_plot.R"))
 opt <- docopt(doc)
 dats <- read.csv(paste0(here(), '/output/data/cleaned_data.csv'))
 
-my_plot <- contour_plot_function(dats, opt$column1, opt$column2, opt$x_lab, opt$y_lab)
+my_plot <- contour_plot_function(dats, !!sym(opt$column1), !!sym(opt$column2), opt$x_lab, opt$y_lab)
 saveRDS(my_plot, file = 'output/figures/contour_plot.rds')

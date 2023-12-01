@@ -4,7 +4,7 @@ source("R/pearson_corr.R")
 
 "This runs the Pearson Test function and exports the result as a data object.
 
-Usage: pearson_script.R <data_path> <col1> <col2> <output_path> [<alternative>]
+Usage: pearson_script.R <data_path> <col1> <col2> [<alternative>]
 " -> doc
 
 opt <- docopt(doc)

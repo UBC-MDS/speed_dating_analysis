@@ -9,11 +9,18 @@ output: html_document
 library(here)
 library(tidyverse)
 library(broom)
+library(knitr)
 source("../R/clean_speed_dating_dat.R")
 source("../R/t_test.R")
 source("../R/contour_plot.R")
 source("../R/pearson_corr.R")
 source("../R/group_comparison_violin_plot.R")
+
+result_paired_test <- readRDS(paste0(here(), '/output/', 'ttest_paired.RDS'))
+result_diff_test <- readRDS(paste0(here(), '/output/', 'ttest_diff.RDS'))
+result_pearson_test <- readRDS(paste0(here(), '/output/', 'pearson_result.RDS'))
+violin_plot <- readRDS(paste0(here(), '/output/figures/', 'group_comparison_violin_plot.RDS'))
+contour_plot <- readRDS(paste0(here(), '/output/figures/', 'contour_plot.RDS'))
 
 # load data
 raw <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
@@ -25,7 +32,7 @@ data <- clean_speed_dating_dat(raw)
 The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Figure 1. Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
-group_violin_plot(data, self_score = attr5_1, other_score = attr_other_rating)
+violin_plot
 ```
 
 <br>
@@ -35,15 +42,11 @@ The negative t-value (-8.5025) indicates that, on average, individuals tend to o
 The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-# result_paired_test = readRDS(paste0(here(),'/output/ttest_paired.RDS'))
-result_paired_test = our_t_test(data,attr_other_rating,attr5_1,version='paired')
-tidy(result_paired_test)
+kable(tidy(result_paired_test), caption = "Paired Test Results")
 ```
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-# result_paired_test = readRDS(paste0(here(),'/output/ttest_diff.RDS'))
-result_diff_test = our_t_test(data,attr_other_rating,attr5_1,version='diff')
-tidy(result_diff_test)
+kable(tidy(result_diff_test), caption = "Difference Test Results")
 ```
 
 <br>
@@ -52,7 +55,7 @@ An additional test was performed to check if the difference is a systematic and 
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE, fig.cap="Figure 2. Contour plot of the relationship between self vs others' rating of attractiveness. The red dashed line (r = 0.2745) indicates a weak significant correlation between these two variables."}
 
-contour_plot_function(data, attr_other_rating, attr5_1, 'Self Rating', 'Other Rating')
+contour_plot
 ```
 
 <br>
@@ -60,8 +63,7 @@ contour_plot_function(data, attr_other_rating, attr5_1, 'Self Rating', 'Other Ra
 The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation.
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
-result_pearson_test = pearson_corr(data, attr_other_rating, attr5_1, alternative='greater')
-tidy(result_pearson_test)
+kable(tidy(result_pearson_test), caption = "Pearson Correlation Test Results")
 ```
 
 In summary, the numerical results strongly support the conclusion that individuals have a tendency to be overly confident in their self-perceived attractiveness. The statistical evidence indicates a significant pattern of overestimation. However, further analysis shows that self-ratings and others' ratings of attractiveness have at least a small correlation. These findings shed a light on the dynamics of self-perception in social contexts.

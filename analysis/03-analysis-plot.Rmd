@@ -29,9 +29,9 @@ raw <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
 data <- clean_speed_dating_dat(raw)
 ```
 
-The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others.
+The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others (see Table \@ref(tab:paired)).
 
-```{r message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Figure 1. Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
+```{r violin, message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
 violin_plot
 ```
 
@@ -39,21 +39,21 @@ violin_plot
 
 The negative t-value (-8.5025) indicates that, on average, individuals tend to overestimate their own attractiveness compared to how others perceive them. The extremely low p-value (7.725e-16) supports the rejection of the null hypothesis, further emphasizing the substantial difference in self-perceived attractiveness.
 
-The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them.
+The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559) (see Table \@ref(tab:difference)). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them. This is bias is visually apparent in the distributions shown in Figure \@ref(fig:violin).
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+```{r paired, message=FALSE, warning=FALSE,echo=FALSE}
 kable(tidy(result_paired_test), caption = "Paired Test Results")
 ```
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+```{r difference, message=FALSE, warning=FALSE,echo=FALSE}
 kable(tidy(result_diff_test), caption = "Difference Test Results")
 ```
 
 <br>
 
-An additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all.
+An additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all (see Table \@ref(tab:pearson)) and the correlation was visualized in Figure \@ref(fig:contour).
 
-```{r message=FALSE, warning=FALSE, echo=FALSE, fig.cap="Figure 2. Contour plot of the relationship between self vs others' rating of attractiveness. The red dashed line (r = 0.2745) indicates a weak significant correlation between these two variables."}
+```{r contour, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="Contour plot of the relationship between self vs others' rating of attractiveness. The red dashed line (r = 0.2745) indicates a weak significant correlation between these two variables."}
 
 contour_plot
 ```
@@ -62,7 +62,7 @@ contour_plot
 
 The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation.
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+```{r pearson, message=FALSE, warning=FALSE,echo=FALSE}
 kable(tidy(result_pearson_test), caption = "Pearson Correlation Test Results")
 ```
 

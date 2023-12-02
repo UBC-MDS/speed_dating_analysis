@@ -17,6 +17,14 @@ A report of our analyses can be found [here](https://wenyunie.github.io/speed_da
 
 ## Usage
 
+#### Project Set up
+
+1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this github repository.
+
+2. Install the latest version of (Docker engine)[https://www.docker.com/get-started/] onto your computer and launch the program ().
+
+#### Running Analyses on Your Local Environment
+
 When running this project for the first time, double click on the `.Rproj` file and run the following code:
 
 ```
@@ -25,27 +33,34 @@ renv::restore()
 
 To run the code for the analysis, open `analysis/report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
 
-Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the Containerization section.
+Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the `Running Analyses via Containers` section.
 
-## Dependencies
 
-* `R` (version 4.3.1 or higher)
-* R packages listed in [`renv.lock`](https://github.com/wenyunie/speed_dating_analysis/blob/main/renv.lock)
+#### Running Analyses via Containers
 
-## Containerization
+A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment. Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by following the below steps:
 
-* A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment.
-* Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by:
-  * Install the latest version of [Docker engine](https://docs.docker.com/engine/install/)
-  * Download this project
-  * In the terminal, under the project root folder, run `docker-compose up -d`
-  * In the web browser, go to `localhost:8787`
-  * Log into Rstudio Server with username `rstudio` and password `key_to_dating`
-  * The project is in there for you to further explore!
+1. In the terminal, navigate to the project root folder and run `docker-compose up -d`
+
+2. In the web browser, go to `localhost:8787`
+
+3. Log into Rstudio Server with username `rstudio` and password `key_to_dating`
+
+4. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab on Rstudio Server and run the following command to run the bash file, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses:
+
+```
+bash analysis_script_and_output_bash_file.sh
+```
+
+**Note 1:** The output analysis report (`analysis_report.html`) is located in the output folder
+
+**Note2 :** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
 
 ## License
 
-The Speed Dating Analysis project and assocated materials are licensed under the MIT license. Please acknowledge and link to this webpage if you plan on using or re-mixing any part of this project
+The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to (the license document in our project)[https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE].
+
+and assocated materials are licensed under the MIT license. Please acknowledge and link to this webpage if you plan on using or re-mixing any part of this project
 
 ## References
 
@@ -59,7 +74,7 @@ Fisman, R., Iyengar, S. S., Kamenica, E., & Simonson, I. (2006). Gender Differen
 
 Greitemeyer, T. (2020). Unattractive people are unaware of their (un)attractiveness. Scandinavian Journal of Psychology, 61(4), 471--483. <https://doi.org/10.1111/sjop.12631>
 
-Logg, J. M., Haran, U., & Moore, D. A. (2018). Is overconfidence a motivated bias? Experimental evidence. Journal of Experimental Psychology: General, 147(10), 1445--1465. <https://doi.org/10.1037/xge0000500>
+Logg, J. M., Haran, U., & Moore, D. A. (2018). Is overconfidence a motivated bias? Experimental evidence. Journal of Experimental Psychology: General, 147(10), 1445-1465. <https://doi.org/10.1037/xge0000500>
 
 Müller, K. (2020). here: A Simpler Way to Find Your Files. <https://CRAN.R-project.org/package=here>
 

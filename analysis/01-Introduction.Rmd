@@ -2,7 +2,7 @@
 title: "Introduction"
 author: "MH"
 date: "2023-11-16"
-output: html_document2
+output: html_document
 ---
 
 # Introduction

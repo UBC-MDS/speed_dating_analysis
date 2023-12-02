@@ -1,6 +1,6 @@
 ---
 title: "Analysis and Result"
-output: html_document2
+output: html_document
 ---
 
 ## Analysis

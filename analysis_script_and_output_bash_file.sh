@@ -17,7 +17,7 @@ Rscript R/03-pearson_process.R output/data/cleaned_data.csv attr_other_rating at
 Rscript R/04-contour_plot.R attr_other_rating attr5_1 'Self Rating' 'Other Rating'
 
 # Script to rendering the final report Rmd file to bookdown html
-Rscript -e "rmarkdown::render('analysis/analysis_report.Rmd', 'bookdown::html_document2', output_dir='output/')"
+Rscript -e "rmarkdown::render('analysis/analysis_report.Rmd', 'bookdown::html_document2')"
 
 # Moving the output to the output folder
 mv analysis/analysis_report.html output/

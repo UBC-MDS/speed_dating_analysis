@@ -1,6 +1,6 @@
 ---
 title: "Methods"
-output: html_document2
+output: html_document
 ---
 
 ## Data

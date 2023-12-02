@@ -3,6 +3,7 @@ title: "Examining Differences in Self vs Others' Perception of Attractiveness"
 author: "Michelle Hunn, Wenyu Nie, Rory White, Mona Zhu"
 output: bookdown::html_document2
 bibliography: references.bib
+link-citations: true
 ---
 
 ```{r child = '00-Summary.Rmd'}

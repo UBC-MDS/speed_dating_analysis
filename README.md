@@ -25,7 +25,7 @@ A report of our analyses can be found [here](https://wenyunie.github.io/speed_da
 
 #### Running Analyses on Your Local Environment
 
-When running this project for the first time, double click on the `speed_dating_analysis.Rproj` file and run the following code:
+When running this project for the first time, double click on the `.Rproj` file and run the following code:
 
 ```
 renv::restore()
@@ -46,7 +46,7 @@ A containerized version of the analysis has been published to Dockerhub as a [Do
 
 3. Log into Rstudio Server with username `rstudio` and password `key_to_dating`
 
-4. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab (if you are unable to locate it, go to `Tools` bar at the top, navigate to `Terminal`, and select `New Terminal`) on Rstudio Server and run the following command to run the bash file, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses:
+4. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab on Rstudio Server and run the following command to run the bash file, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses:
 
 ```
 bash analysis_script_and_output_bash_file.sh
@@ -55,14 +55,6 @@ bash analysis_script_and_output_bash_file.sh
 **Note 1:** The output analysis report (`analysis_report.html`) is located in the output folder
 
 **Note2 :** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
-
-#### Shutting Down the Container
-
-To shut down the container, run the following code: 
-
-```
-docker-compose down
-```
 
 ## License
 

@@ -18,6 +18,3 @@ Rscript R/04-contour_plot.R attr_other_rating attr5_1 'Self Rating' 'Other Ratin
 
 # Script to rendering the final report Rmd file to bookdown html
 Rscript -e "rmarkdown::render('analysis/analysis_report.Rmd', 'bookdown::html_document2', output_dir='output/')"
-
-# Moving the output to the output folder
-mv analysis/analysis_report.html output/

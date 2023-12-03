@@ -55,7 +55,7 @@ If the user insists on using their own local terminal, then the user would need 
 
 To separately run the code for the analysis, open `analysis/analysis-plot.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
 
-To separately render the final report, open `analysis/analysis_report.Rmd` through Rstudio and click "Knit". (please do not try to run code cells of this parent RMD file, it is meant provide structure only.)
+To separately render the final report, open `analysis/analysis_report.Rmd` through Rstudio and click "Knit". (please do not try to run code cells of this parent RMD file, it is meant to provide structure only.)
 
 Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the `Running Analyses via Containers` section.
 

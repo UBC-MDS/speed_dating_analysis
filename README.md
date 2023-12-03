@@ -25,10 +25,14 @@ A report of our analyses can be found [here](https://wenyunie.github.io/speed_da
 
 #### Running Analyses on Your Local Environment
 
-We highly recommend using a containerized solution to run the project so that the r package and system package depedencies are easier to be reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, please make sure:
-1. R and Rstudio is installed on the local computer;
-2. R package 'renv' is installed for the purpose of r package depedency control;
-3. System level dependency [pandoc](https://pandoc.org/) is installed on your computer (for bookdown rendering from terminal).
+We highly recommend using a containerized solution to run the project so that the r package and system package depedencies are easier to be reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, there are several dependencies to be installed manually.
+1. Install R and Rstudio on the local computer.
+2. Install R package 'renv' for the purpose of r package depedency control. In any R session:
+   
+```
+install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))
+```
+3. Install system level dependency [pandoc](https://pandoc.org/) on your computer for bookdown rendering from terminal).
 
 When running this project for the first time, double click on the `speed_dating_analysis.Rproj` file and run the following code:
 

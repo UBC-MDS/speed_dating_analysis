@@ -53,7 +53,9 @@ If the user insists on using their own local terminal, then the user would need 
 **Note2:** VERY IMPORTANT!!!!: If the user plans to use the containerized solution later, please remember to deactivate the .Rproj fist. Otherwise the activated .Rproj environment will be detected inside the container because of the .Rprofile file! This would overlay the self-contained container environment!!!
 
 
-To run the code for the analysis, open `analysis/analysis_report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
+To separately run the code for the analysis, open `analysis/analysis-plot.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
+
+To separately render the final report, open `analysis/analysis_report.Rmd` through Rstudio and click "Knit". (please do not try to run code cells of this parent RMD file, it is meant provide structure only.)
 
 Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the `Running Analyses via Containers` section.
 

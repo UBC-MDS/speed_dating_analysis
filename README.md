@@ -25,22 +25,31 @@ A report of our analyses can be found [here](https://wenyunie.github.io/speed_da
 
 #### Running Analyses on Your Local Environment
 
+We highly recommend using a containerized solution to run the project so that the r package and system package depedencies are easier to be reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, please make sure:
+1. R and Rstudio is installed on the local computer;
+2. R package 'renv' is installed for the purpose of r package depedency control;
+3. System level dependency [pandoc](https://pandoc.org/) is installed on your computer (for bookdown rendering from terminal).
+
 When running this project for the first time, double click on the `speed_dating_analysis.Rproj` file and run the following code:
 
 ```
 renv::restore()
 ```
+**Note1:** The .Rproj is deactivated by default, Rstudio might prompt you to activate the project first.Please do so and then run:: restore() again after the session is restarted.
+
+**Note2:** VERY IMPORTANT!!!!: If the user plans to use the containerized solution later, please remember to deactivate the .Rproj fist. Otherwise the activated .Rproj environment will be detected inside the container because of the .Rprofile file! This would overlay the self-contained container environment!!!
+
 
 To run the code for the analysis, open `analysis/report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
 
 Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the `Running Analyses via Containers` section.
 
 
-#### Running Analyses via Containers
+#### Running Analyses via Containers (Recommended)
 
 A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment. Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by following the below steps:
 
-1. In the terminal, navigate to the project root folder and run `docker-compose up -d`
+1. In the terminal, navigate to the project root folder and run `docker compose up -d`
 
 2. In the web browser, go to `localhost:8787`
 
@@ -52,16 +61,18 @@ A containerized version of the analysis has been published to Dockerhub as a [Do
 bash analysis_script_and_output_bash_file.sh
 ```
 
-**Note 1:** The output analysis report (`analysis_report.html`) is located in the output folder
+**Note1:** The output analysis report (`analysis_report.html`) is located in the output folder
 
-**Note2 :** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
+**Note2:** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
+
+**Note3:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the renv environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
 
 #### Shutting Down the Container
 
 To shut down the container, run the following code: 
 
 ```
-docker-compose down
+docker compose down
 ```
 
 ## License

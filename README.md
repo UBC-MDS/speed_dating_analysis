@@ -71,6 +71,8 @@ bash analysis_script_and_output_bash_file.sh
 
 **Note3:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the renv environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
 
+**Note4:** Do not worry if you running to warning messages relating to 'grSoftVersion' in the containerized environment. Your report is rendered properly.
+
 #### Shutting Down the Container
 
 To shut down the container, run the following code: 

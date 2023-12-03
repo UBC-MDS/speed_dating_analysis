@@ -27,24 +27,33 @@ A report of our analyses can be found [here](https://wenyunie.github.io/speed_da
 
 We highly recommend using a containerized solution to run the project so that the r package and system package depedencies are easier to be reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, there are several dependencies to be installed manually.
 1. Install R and Rstudio on the local computer.
+
 2. Install R package 'renv' for the purpose of r package depedency control. In any R session:
    
 ```
 install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))
 ```
-3. Install system level dependency [pandoc](https://pandoc.org/) on your computer for bookdown rendering from terminal).
 
-When running this project for the first time, double click on the `speed_dating_analysis.Rproj` file and run the following code:
+3. When running this project for the first time, double click on the `speed_dating_analysis.Rproj` file and run the following code:
 
 ```
 renv::restore()
 ```
-**Note1:** The .Rproj is deactivated by default, Rstudio might prompt you to activate the project first.Please do so and then run:: restore() again after the session is restarted.
+
+You will be prompted to activate your renv environment. After that, retype `renv::restore()` again to download the necessary packages and dependencies for the project
+
+4. Within Rstudio's Terminal tab, run the following code: 
+```
+bash analysis_script_and_output_bash_file.sh
+```
+If the user insists on using their own local terminal, then the user would need to ensure that [pandoc](https://pandoc.org/installing.html) is installed on their local machine.
+
+**Note1:** The output analysis report (`analysis_report.html`) is located in the output folder
 
 **Note2:** VERY IMPORTANT!!!!: If the user plans to use the containerized solution later, please remember to deactivate the .Rproj fist. Otherwise the activated .Rproj environment will be detected inside the container because of the .Rprofile file! This would overlay the self-contained container environment!!!
 
 
-To run the code for the analysis, open `analysis/report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
+To run the code for the analysis, open `analysis/analysis_report.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
 
 Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the `Running Analyses via Containers` section.
 
@@ -69,13 +78,17 @@ bash analysis_script_and_output_bash_file.sh
 
 **Note2:** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
 
-**Note3:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the renv environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
+**Note3:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
 
-**Note4:** Do not worry if you running to warning messages relating to 'grSoftVersion' in the containerized environment. Your report is rendered properly.
+**Note4:** Do not worry if you running to warning messages relating to 'grSoftVersion' in the containerized environment. Your report will be rendered properly.
 
 #### Shutting Down the Container
 
-To shut down the container, run the following code: 
+To shut down the container, follow the following steps:
+
+1. In your local machine's terminal, Hit ctrl + C twice to exit out of Rstudio server
+
+2. Run the following command in your terminal window:
 
 ```
 docker compose down

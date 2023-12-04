@@ -12,7 +12,7 @@ The dataset used in this project were obtained from a series of speed dating stu
 
 ## Report
 
-A report of our analyses can be found [here](https://wenyunie.github.io/speed_dating_analysis/output/analysis_report.html).
+A report of our analyses can be found [here](https://ubc-mds.github.io/speed_dating_analysis/output/analysis_report.html).
 
 
 ## Usage

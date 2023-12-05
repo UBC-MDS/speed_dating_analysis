@@ -84,6 +84,11 @@ bash analysis_script_and_output_bash_file.sh
 
 **Note4:** Do not worry if you running to warning messages relating to 'grSoftVersion' in the containerized environment. Your report will be rendered properly.
 
+**Note5:** If you are using a M2-chip (sometimes M1 too) computer, you will need to emulate an x86/arm64 environment for the container to be successfully running on your computer. This can be done by enabling Rosetta with your Docker Desktop:
+
+![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/2b569b13-1f6d-4b5c-94bb-2ac38969fd17)
+
+
 #### Shutting Down the Container
 
 To shut down the container, follow the following steps:

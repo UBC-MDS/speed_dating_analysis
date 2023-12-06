@@ -24,7 +24,7 @@ A report of our analyses can be found [here](https://ubc-mds.github.io/speed_dat
 
 A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment. Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by following the below steps:
 
-1. Install the latest version of (Docker engine)[https://www.docker.com/get-started/] onto your computer and click on the Docker Desktop application to launch it.
+1. Install the latest version of [Docker engine](https://www.docker.com/get-started/) onto your computer and click on the Docker Desktop application to launch it.
 
 2. In the terminal, navigate to the project root folder and run `docker compose up -d`
 

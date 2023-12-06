@@ -1,5 +1,6 @@
 services:
   analysis-env:
+    platform: linux/amd64
     image: wenyunie/dsci522-rocker-speed-dating:milestone2  # This is going to be replaced by our customized computational environment image
     ports:
       - "8787:8787"

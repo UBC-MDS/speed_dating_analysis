@@ -14,18 +14,55 @@ The dataset used in this project were obtained from a series of speed dating stu
 
 A report of our analyses can be found [here](https://ubc-mds.github.io/speed_dating_analysis/output/analysis_report.html).
 
-
 ## Usage
 
 #### Project Set up
 
-1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this github repository.
+[Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this github repository.
 
-2. Install the latest version of (Docker engine)[https://www.docker.com/get-started/] onto your computer and launch the program ().
+#### Option 1: Running Analyses via Containers (Recommended)
 
-#### Running Analyses on Your Local Environment
+A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment. Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by following the below steps:
 
-We highly recommend using a containerized solution to run the project so that the r package and system package depedencies are easier to be reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, there are several dependencies to be installed manually.
+1. Install the latest version of (Docker engine)[https://www.docker.com/get-started/] onto your computer and click on the Docker Desktop application to launch it.
+
+2. In the terminal, navigate to the project root folder and run `docker compose up -d`
+
+3. In the web browser, go to `localhost:8787`
+
+4. Log into Rstudio Server with username `rstudio` and password `key_to_dating`
+
+5. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab (if you are unable to locate it, go to `Tools` bar at the top, navigate to `Terminal`, and select `New Terminal`) on Rstudio Server and run the following command to run the bash file, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses:
+
+```
+bash analysis_script_and_output_bash_file.sh
+```
+
+The output analysis report (`analysis_report.html`) is located in the output folder
+
+**Note1:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
+
+**Note2:** If you are using a M2-chip (sometimes M1 too) computer, you will need to emulate an x86/arm64 environment for the container to be successfully running on your computer. This can be done by enabling Rosetta with your Docker Desktop:
+
+![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/2b569b13-1f6d-4b5c-94bb-2ac38969fd17)
+
+
+#### Shutting Down the Container
+
+To shut down the container, follow the following steps:
+
+1. In your local machine's terminal, Hit ctrl + C twice to exit out of Rstudio server
+
+2. Run the following command in your terminal window:
+
+```
+docker compose down
+```
+
+#### Option 2: Running Analyses on Your Local Environment
+
+While we highly recommend using a containerized solution to run the project so that the r package and system package depedencies can be easily reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, there are several dependencies to be installed manually.
+
 1. Install R and Rstudio on the local computer.
 
 2. Install R package 'renv' for the purpose of r package depedency control. In any R session:
@@ -48,58 +85,11 @@ bash analysis_script_and_output_bash_file.sh
 ```
 If the user insists on using their own local terminal, then the user would need to ensure that [pandoc](https://pandoc.org/installing.html) is installed on their local machine.
 
-**Note1:** The output analysis report (`analysis_report.html`) is located in the output folder
+The output analysis report (`analysis_report.html`) is located in the output folder
 
-**Note2:** VERY IMPORTANT!!!!: If the user plans to use the containerized solution later, please remember to deactivate the .Rproj fist. Otherwise the activated .Rproj environment will be detected inside the container because of the .Rprofile file! This would overlay the self-contained container environment!!!
-
-
-To separately run the code for the analysis, open `analysis/analysis-plot.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All". 
+To separately run the code for the analysis, open `analysis/analysis-plot.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All".
 
 To separately render the final report, open `analysis/analysis_report.Rmd` through Rstudio and click "Knit". (please do not try to run code cells of this parent RMD file, it is meant to provide structure only.)
-
-Users who find it difficult to manually reproduce the environment for running the analysis and rendering the report can follow the guide in the `Running Analyses via Containers` section.
-
-
-#### Running Analyses via Containers (Recommended)
-
-A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment. Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by following the below steps:
-
-1. In the terminal, navigate to the project root folder and run `docker compose up -d`
-
-2. In the web browser, go to `localhost:8787`
-
-3. Log into Rstudio Server with username `rstudio` and password `key_to_dating`
-
-4. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab (if you are unable to locate it, go to `Tools` bar at the top, navigate to `Terminal`, and select `New Terminal`) on Rstudio Server and run the following command to run the bash file, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses:
-
-```
-bash analysis_script_and_output_bash_file.sh
-```
-
-**Note1:** The output analysis report (`analysis_report.html`) is located in the output folder
-
-**Note2:** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
-
-**Note3:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
-
-**Note4:** Do not worry if you running to warning messages relating to 'grSoftVersion' in the containerized environment. Your report will be rendered properly.
-
-**Note5:** If you are using a M2-chip (sometimes M1 too) computer, you will need to emulate an x86/arm64 environment for the container to be successfully running on your computer. This can be done by enabling Rosetta with your Docker Desktop:
-
-![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/2b569b13-1f6d-4b5c-94bb-2ac38969fd17)
-
-
-#### Shutting Down the Container
-
-To shut down the container, follow the following steps:
-
-1. In your local machine's terminal, Hit ctrl + C twice to exit out of Rstudio server
-
-2. Run the following command in your terminal window:
-
-```
-docker compose down
-```
 
 ## Dependencies
 See the [renv.lock file] (https://github.com/UBC-MDS/speed_dating_analysis/blob/main/renv.lock) for the dependencies.
@@ -109,6 +99,12 @@ See the [renv.lock file] (https://github.com/UBC-MDS/speed_dating_analysis/blob/
 The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to (the license document in our project)[https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE].
 
 and assocated materials are licensed under the MIT license. Please acknowledge and link to this webpage if you plan on using or re-mixing any part of this project
+
+## Developer Notes
+
+**Note1:** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
+
+**Note2:** If the you plan to use the containerized solution after using the renv file, please remember to deactivate the .Rproj fist. Otherwise the activated .Rproj environment will be detected inside the container because of the .Rprofile file. This would overlay the self-contained container environment.
 
 ## References
 

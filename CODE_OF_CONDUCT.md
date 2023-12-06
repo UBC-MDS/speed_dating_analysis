@@ -17,7 +17,7 @@ In order to help foster an inclusive and foster environments:
 ### Unacceptable Behaviours
 
 - The use of hate speech of any kind
-- Derogaroty or sexualizing language or imagery
+- Derogatory or sexualizing language or imagery
 - Harassment and/or personal attacks
 - Publishing private information of others
 

@@ -32,13 +32,9 @@ A containerized version of the analysis has been published to Dockerhub as a [Do
 
 4. Log into Rstudio Server with username `rstudio` and password `key_to_dating`
 
-5. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab (if you are unable to locate it, go to `Tools` bar at the top, navigate to `Terminal`, and select `New Terminal`) on Rstudio Server and run the following command to run the bash file, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses:
+5. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab (if you are unable to locate it, go to `Tools` bar at the top, navigate to `Terminal`, and select `New Terminal`) on Rstudio Server and run `make all`, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses. The output analysis report (`analysis_report.html`) is located in the output folder.
 
-```
-bash analysis_script_and_output_bash_file.sh
-```
-
-The output analysis report (`analysis_report.html`) is located in the output folder
+6. To remove all the files and folder created with `make all`, run `make clear` in the terminal.
 
 **Note1:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
 
@@ -79,17 +75,10 @@ renv::restore()
 
 You will be prompted to activate your renv environment. After that, retype `renv::restore()` again to download the necessary packages and dependencies for the project
 
-4. Within Rstudio's Terminal tab, run the following code: 
-```
-bash analysis_script_and_output_bash_file.sh
-```
-If the user insists on using their own local terminal, then the user would need to ensure that [pandoc](https://pandoc.org/installing.html) is installed on their local machine.
+4. Within Rstudio's Terminal tab, run `make all`.  If the user insists on using their own local terminal, then the user would need to ensure that [pandoc](https://pandoc.org/installing.html) is installed on their local machine. The output analysis report (`analysis_report.html`) is located in the output folder
 
-The output analysis report (`analysis_report.html`) is located in the output folder
+5. To remove all the files and folder created with `make all`, run `make clear` in the terminal.
 
-To separately run the code for the analysis, open `analysis/analysis-plot.Rmd` through Rstudio and under "Run" on the top right hand side, select "Run All".
-
-To separately render the final report, open `analysis/analysis_report.Rmd` through Rstudio and click "Knit". (please do not try to run code cells of this parent RMD file, it is meant to provide structure only.)
 
 ## Dependencies
 See the [renv.lock file](https://github.com/UBC-MDS/speed_dating_analysis/blob/main/renv.lock) for the dependencies.

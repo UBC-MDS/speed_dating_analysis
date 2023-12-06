@@ -92,11 +92,11 @@ To separately run the code for the analysis, open `analysis/analysis-plot.Rmd` t
 To separately render the final report, open `analysis/analysis_report.Rmd` through Rstudio and click "Knit". (please do not try to run code cells of this parent RMD file, it is meant to provide structure only.)
 
 ## Dependencies
-See the [renv.lock file] (https://github.com/UBC-MDS/speed_dating_analysis/blob/main/renv.lock) for the dependencies.
+See the [renv.lock file](https://github.com/UBC-MDS/speed_dating_analysis/blob/main/renv.lock) for the dependencies.
 
 ## License
 
-The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to (the license document in our project)[https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE].
+The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to [the license document in our project](https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE).
 
 and assocated materials are licensed under the MIT license. Please acknowledge and link to this webpage if you plan on using or re-mixing any part of this project
 

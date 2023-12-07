@@ -34,7 +34,7 @@ A containerized version of the analysis has been published to Dockerhub as a [Do
 
 5. To run the analysis and to create the corresponding output report, navigate to the `Terminal` tab (if you are unable to locate it, go to `Tools` bar at the top, navigate to `Terminal`, and select `New Terminal`) on Rstudio Server and run `make all`, which will (1) run all of the analyses and save their outputs and (2) generate a `html` report summarizing the analyses. The output analysis report (`analysis_report.html`) is located in the output folder.
 
-6. To remove all the files and folder created with `make all`, run `make clear` in the terminal.
+6. To remove all the files and folder created with `make all`, run `make clean` in the terminal.
 
 **Note1:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
 

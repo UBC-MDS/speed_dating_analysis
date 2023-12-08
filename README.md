@@ -87,13 +87,13 @@ See the [renv.lock file](https://github.com/UBC-MDS/speed_dating_analysis/blob/m
 
 The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to [the license document in our project](https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE).
 
-and assocated materials are licensed under the MIT license. Please acknowledge and link to this webpage if you plan on using or re-mixing any part of this project
+Please acknowledge and link to this webpage if you plan on using, re-mixing, or adapting any part of this project.
 
 ## Developer Notes
 
-**Note1:** If you would like to run only a portion or subset of the analyses, please open `analysis_script_and_output_bash_file.sh` and selectively run the commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
+**Note 1:** If you would like to run only a portion or subset of the analyses, please open `Makefile` and selectively run the script commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
 
-**Note2:** If the you plan to use the containerized solution after using the renv file, please remember to deactivate the .Rproj fist. Otherwise the activated .Rproj environment will be detected inside the container because of the .Rprofile file. This would overlay the self-contained container environment.
+**Note 2:** If the you plan to use the containerized solution after using the renv file, please either deactivate renv first by entering `renv::deactivate()` in the console OR remove the `.Rprofile` file. Otherwise the activated .Rproj environment will be detected inside the container and overwrite the self-contained container environment.
 
 ## References
 

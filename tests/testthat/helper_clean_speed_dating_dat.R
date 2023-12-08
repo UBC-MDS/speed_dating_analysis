@@ -31,8 +31,8 @@ wrong_df <- tribble(
 ) 
 
 short_df <- tribble(
-  ~iid, ~pid, ~attr2_1, ~sinc2_1, ~intel2_1, ~fun2_1, ~amb2_1, ~attr, ~sinc, ~intel, ~fun, ~amb, ~like,
-  1,2,NA,NA,NA,NA,NA,4,8,9,7,8,8
+  ~iid, ~pid, ~attr5_1, ~sinc5_1, ~intel5_1, ~fun5_1, ~amb5_1, ~attr, ~sinc, ~intel, ~fun, ~amb, ~like,
+  2,6,6,9,9,9,9,3,8,7,5,5,7
 ) 
 
 

@@ -9,7 +9,7 @@ test_that("Test that the raw data frame has the relevant input", {
 })
 
 test_that("Test that the data has more than 1 row", {
-  expect_error(clean_speed_dating_dat(wrong_df),
+  expect_error(clean_speed_dating_dat(short_df),
                "Your data frame only has 1 row of data")
 })
 

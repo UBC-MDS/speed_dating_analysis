@@ -23,7 +23,7 @@ clean_speed_dating_dat <- function(dat){
     stop("Check that you are using the correct data set!")
   }
   # check that there is more than 1 observation in the data frame
-  if (nrow(dat) <= 0){
+  if (nrow(dat) <= 1){
     stop("Your data frame only has 1 row of data")
   }
   # obtaining other rating of each individual by aggregating

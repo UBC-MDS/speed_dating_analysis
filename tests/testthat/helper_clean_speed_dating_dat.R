@@ -30,4 +30,10 @@ wrong_df <- tribble(
   2,6,6,9,9,9,9,3,8,7,5,5,7
 ) 
 
+short_df <- tribble(
+  ~iid, ~pid, ~attr2_1, ~sinc2_1, ~intel2_1, ~fun2_1, ~amb2_1, ~attr, ~sinc, ~intel, ~fun, ~amb, ~like,
+  1,2,NA,NA,NA,NA,NA,4,8,9,7,8,8
+) 
+
+
 df <- clean_speed_dating_dat(raw_df)

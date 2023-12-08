@@ -15,24 +15,40 @@
 #' clean_speed_dating_dat()
 clean_speed_dating_dat <- function(dat){
   # check that the correct data frame is being used
-  if (sum(c("attr", "sinc", "intel", "fun", "amb",
-          "attr5_1", "sinc5_1", "intel5_1", "fun5_1", "amb5_1") %in% names(dat))!=10){
+  if (
+    sum(c("attr", "sinc", "intel", "fun", "amb",
+          "attr5_1", "sinc5_1", "intel5_1", "fun5_1", "amb5_1") %in% 
+        names(dat))!=10
+  ){
     stop("Check that you are using the correct data set!")
+  }
+  # check that there is more than 1 observation in the data frame
+  if (nrow(dat) <= 0){
+    stop("Your data frame only has 1 row of data")
   }
   # obtaining other rating of each individual by aggregating
   # across their partner's ratings of them
   dat |> 
     dplyr::select(pid, attr:amb) |> 
     dplyr::group_by(pid) |> 
-    dplyr::summarise(dplyr::across(c(attr:amb), ~mean(., na.rm = TRUE))) |> 
-    dplyr::rename_at(dplyr::vars(attr:amb), ~ paste0(., "_other_rating")) -> other_rating
+    dplyr::summarise(
+      dplyr::across(c(attr:amb), ~mean(., na.rm = TRUE))
+    ) |> 
+    dplyr::rename_at(
+      dplyr::vars(attr:amb), ~ paste0(., "_other_rating")
+    ) -> other_rating
   
   # obtaining self rating  
-  dat |> 
+  self_rating <- dat |> 
     dplyr::select(iid, attr5_1:amb5_1) |> 
     unique() |> 
-    dplyr::filter_at(vars(attr5_1:amb5_1), ~ !is.na(.)) -> self_rating
+    dplyr::filter_at(vars(attr5_1:amb5_1), ~ !is.na(.)) 
   
-  cleaned_data <- merge(other_rating, self_rating, by.x = "pid", by.y = "iid")
+  cleaned_data <- merge(
+    other_rating, 
+    self_rating, 
+    by.x = "pid", 
+    by.y = "iid"
+  )
   
 }

@@ -36,9 +36,9 @@ A containerized version of the analysis has been published to Dockerhub as a [Do
 
 6. To remove all the files and folder created with `make all`, run `make clean` in the terminal.
 
-**Note1:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not try to activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
+**Note 1:** VERY IMPORTANT: the containerizaiton solution is self-contained for running analysis and rendering reports, please do not activate the `renv` environment when you are using the containerized solution, which can overlay the plain container environment and lead to unexpected errors.
 
-**Note2:** If you are using a M2-chip (sometimes M1 too) computer, you will need to emulate an x86/arm64 environment for the container to be successfully running on your computer. This can be done by enabling Rosetta with your Docker Desktop:
+**Note 2:** If you are using a computer with M2-chip (sometimes M1 too), you will need to emulate the x86/arm64 environment for the container to successfully run on your computer. This can be done by enabling Rosetta with your Docker Desktop:
 
 ![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/2b569b13-1f6d-4b5c-94bb-2ac38969fd17)
 
@@ -47,7 +47,7 @@ A containerized version of the analysis has been published to Dockerhub as a [Do
 
 To shut down the container, follow the following steps:
 
-1. In your local machine's terminal, Hit ctrl + C twice to exit out of Rstudio server
+1. In your local machine's terminal, hit ctrl + C twice to exit out of Rstudio server
 
 2. Run the following command in your terminal window:
 
@@ -81,19 +81,29 @@ You will be prompted to activate your renv environment. After that, retype `renv
 
 
 ## Dependencies
+
 See the [renv.lock file](https://github.com/UBC-MDS/speed_dating_analysis/blob/main/renv.lock) for the dependencies.
 
-## License
-
-The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to [the license document in our project](https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE).
-
-Please acknowledge and link to this webpage if you plan on using, re-mixing, or adapting any part of this project.
 
 ## Developer Notes
 
 **Note 1:** If you would like to run only a portion or subset of the analyses, please open `Makefile` and selectively run the script commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
 
 **Note 2:** If the you plan to use the containerized solution after using the renv file, please either deactivate renv first by entering `renv::deactivate()` in the console OR remove the `.Rprofile` file. Otherwise the activated .Rproj environment will be detected inside the container and overwrite the self-contained container environment.
+
+### Running the Tests
+
+Tests can be performed by running the following code in the terminal within the root project folder: 
+
+```
+testthat::test_dir("tests/testthat")
+```
+
+## License
+
+The Speed Dating Analysis project is licensed under the Creative Common License [CC BY-NC-SA 4.0 Deed](https://creativecommons.org/licenses/by-nc-sa/4.0/). Please acknowledge and link to this webpage if you plan on using or adapting any part of this project. The software portion of this project is licensed under the MIT license. For a full description of the licenses used, please refer to [the license document in our project](https://github.com/wenyunie/speed_dating_analysis/blob/main/LICENSE).
+
+Please acknowledge and link to this webpage if you plan on using, re-mixing, or adapting any part of this project.
 
 ## References
 

@@ -14,7 +14,13 @@ An observation or row in the data represents one set of ratings per ratee. For i
 
 ## Analysis
 
-We conducted a one-sample t-test to answer our research question (whether self-perception of attractiveness is accurate). Since observations in the original raw dataset violated assumptions of independence (i.e., each rater made multiple ratings and each ratee received multiple ratings), we decided to first process the data by averaging how each rater rated the attractiveness of each ratee. We then calculated a difference score by subtracting how others perceived an individual’s attractiveness from an individual’s rating of their own perceived attractiveness by others (i.e., own perception – other perception). As such, a positive score indicates that an individual was overly confident in their own perceived attractiveness.
+We conducted a one-sample t-test in order to examine our core research question of interest (i.e., whether self-perception of attractiveness is accurate). That is, we would take the difference in self- vs other-rated attractiveness and compare it against zero; if our difference score is statistically different from zero, then we would have sufficient evidence to reject the null hypothesis (i.e., that there is no difference between self- vs other-rated attractiveness). 
+
+### Data Pre-Processing
+
+Since observations in the original raw dataset violated assumptions of independence (i.e., each rater made multiple ratings and each ratee received multiple ratings), we decided to first process the data by averaging how each rater rated the attractiveness of each ratee. 
+
+We then calculated a difference score by subtracting how others perceived an individual’s attractiveness from an individual’s rating of their own perceived attractiveness by others (i.e., own perception – other perception). As such, a positive score indicates that an individual was overly confident in their own perceived attractiveness.
 
 Analysis and graphs were produced using the R programming language [@r_core_team_r_2019] as well as the following R packages: tidyverse [@wickham_welcome_2019], knitr [@xie_knitr_2023]. For the full code used to produce this report and analyses, please see: https://github.com/wenyunie/speed_dating_analysis.
 

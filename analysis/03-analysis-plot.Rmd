@@ -3,8 +3,6 @@ title: "Analysis and Result"
 output: bookdown::html_document2
 ---
 
-## Analysis
-
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(here)
 library(tidyverse)
@@ -31,7 +29,8 @@ raw <- read.csv(paste0(here(),'/data/Speed_Dating_Data.csv'))
 data <- clean_speed_dating_dat(raw)
 ```
 
-The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others (see Table \@ref(tab:paired)).
+### Exploratory Data Analysis
+
 
 ```{r violin, message=FALSE, warning=FALSE,echo=FALSE, fig.cap="Rating of attractiveness by other raters versus self. Error bars denote 95% bootstrap confidence interval."}
 violin_plot
@@ -39,13 +38,25 @@ violin_plot
 
 <br>
 
-The negative t-value (-8.5025) indicates that, on average, individuals tend to overestimate their own attractiveness compared to how others perceive them. The extremely low p-value (7.725e-16) supports the rejection of the null hypothesis, further emphasizing the substantial difference in self-perceived attractiveness.
+As shown in figure 1 below, our dependent variable of interest (attractiveness rating) is roughly bell-shaped aross both levels of our independent variable (self- vs other-rated). There is also no obvious skew or outliers in our data.
 
-The 95 percent confidence interval for the true mean difference is (-0.9678015, -0.6040559) (see Table \@ref(tab:difference)). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them. This is bias is visually apparent in the distributions shown in Figure \@ref(fig:violin).
+The non-overalpping 95% bootstrap confidence intervals suggests that there may be a difference in self- vs other-rated attractiveness. We further examine this relationship below.
+
+
+### Statistical Analysis
+
+The one-sample t-test on the difference scores revealed a significant difference between self-perceived attractiveness and the average perception by others (see Table \@ref(tab:paired)). 
+
+The negative t-value (`r round(result_paired_test$statistic[[1]], 3)`) indicates that, on average, individuals tend to overestimate their own attractiveness compared to how others perceive them. The extremely low p-value (`r signif(result_paired_test$p.value, 3)`) supports the rejection of the null hypothesis, further emphasizing the substantial difference in self-perceived attractiveness.
+
+The 95 percent confidence interval for the true mean difference is (`r round(result_paired_test$conf.int[1], 3)`, `r round(result_paired_test$conf.int[2], 3)`) (see Table \@ref(tab:difference)). This interval does not include zero, reinforcing the conclusion that individuals exhibit a systematic bias by viewing themselves as more attractive than how others perceive them. This is bias is visually apparent in the distributions shown in Figure \@ref(fig:violin).
 
 ```{r paired, message=FALSE, warning=FALSE,echo=FALSE}
 kable(tidy(result_paired_test), caption = "Paired Test Results")
 ```
+
+Below, we also provide the paired-sample t-test results. Note that paired t-tests are beyond the scope of our current learning, but mathematically, they should be equivalent to a one-sample t-test that examines whether the difference in ratings differ from zero. Indeed, our one-sample t-test and paired-sample t-test results converge.
+
 
 ```{r difference, message=FALSE, warning=FALSE,echo=FALSE}
 kable(tidy(result_diff_test), caption = "Difference Test Results")
@@ -53,7 +64,7 @@ kable(tidy(result_diff_test), caption = "Difference Test Results")
 
 <br>
 
-An additional test was performed to check if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all (see Table \@ref(tab:pearson)) and the correlation was visualized in Figure \@ref(fig:contour).
+An additional test was performed to examine if the difference is a systematic and constant overrating of one's own attributes, or if the self-rating is also not accurate in the sense that it is not correlated to others' perception at all (see Table \@ref(tab:pearson)) and the correlation was visualized in Figure \@ref(fig:contour).
 
 ```{r contour, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="Contour plot of the relationship between self vs others' rating of attractiveness. The red dashed line (r = 0.2745) indicates a weak significant correlation between these two variables."}
 
@@ -62,7 +73,7 @@ contour_plot
 
 <br>
 
-The observed correlation is 0.2745, with a 95 percent confidence interval between 0.1863 and 1.000. The p-value of 3.892e-07 is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation.
+The observed correlation is `r round(result_pearson_test$estimate[[1]], 3)`, with a 95 percent confidence interval between `r round(result_pearson_test$conf.int[1], 3)` and `r round(result_pearson_test$conf.int[2], 3)`. The p-value of `r signif(result_pearson_test$p.value, 3)` is smaller than the commonly used significance level of 0.05. Therefore, we have sufficient evidence to reject the null hypothesis in favor of the alternative hypothesis. The null hypothesis in this case is that the true correlation between self rating and others' perception is equal to 0. The 95 percent confidence interval does not include 0, further supporting the hypothesis of a significant correlation.
 
 ```{r pearson, message=FALSE, warning=FALSE,echo=FALSE}
 kable(tidy(result_pearson_test), caption = "Pearson Correlation Test Results")

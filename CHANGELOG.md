@@ -1,5 +1,5 @@
 - updating the docker-compose.yml for clarification of platform for running the container
--- feedback from: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1841769787
+  - feedback from: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1841769787
 -- recorded change: https://github.com/UBC-MDS/speed_dating_analysis/pull/75
 
 - providing Rosetta as the solution of M1/M2 chips in the readme file that could be the most convenient solution

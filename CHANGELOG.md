@@ -39,6 +39,4 @@
   - from feedback https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1841769787
 
 - Updated Readme with the makefile instructions
-  - commit: [[b84973d48c5455828457afa42a0138fa8e7b6630]](https://github.com/UBC-MDS/speed_dating_analysis/commit/b84973d48c5455828457afa42a0138fa8e7b6630)https://github.com/UBC-MDS/speed_dating_analysis/commit/b84973d48c5455828457afa42a0138fa8e7b6630
- 
-
+  - commit: [[b84973d48c5455828457afa42a0138fa8e7b6630]](https://github.com/UBC-MDS/speed_dating_analysis/commit/b84973d48c5455828457afa42a0138fa8e7b6630)

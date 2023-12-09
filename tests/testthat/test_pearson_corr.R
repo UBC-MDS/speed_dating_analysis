@@ -1,4 +1,5 @@
 source("helper_pearson_corr.R")
+source(paste0(here(),'/R/pearson_corr.R'))
 
 test_that("Test estimate gives correct value", {
   expect_equivalent(expected_result_greater$estimate, observed_result_greater$estimate)
@@ -24,4 +25,6 @@ test_that("Test alternative gives correct value", {
   expect_equal(expected_result_two_sided$alternative, observed_result_two_sided$alternative)
 })
 
-
+test_that("Test that function does not accept df with single row", {
+  expect_error(pearson_corr(data_single_row, x_2, y_2, "greater"), "The dataframe must have more than one row", ignore.case = TRUE)
+})

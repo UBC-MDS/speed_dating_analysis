@@ -13,6 +13,10 @@
 #' @examples
 #' pearson_corr(mtcars, mpg, disp, "less")
 pearson_corr <- function(data, col1, col2, alternative = "two.sided") {
+
+  if (nrow(data) == 1) {
+    stop("The dataframe must have more than one row")
+  }
   
   alternative <- match.arg(alternative, 
                            choices = c("two.sided", "less", "greater"))
@@ -22,3 +26,4 @@ pearson_corr <- function(data, col1, col2, alternative = "two.sided") {
            alternative = alternative,
            method = "pearson")
 }
+

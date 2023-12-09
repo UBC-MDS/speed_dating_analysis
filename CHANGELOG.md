@@ -23,22 +23,22 @@
 <img width="317" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/9637add1-7109-4360-acbd-de1c2756c64f">
 
 - updated license: branch update_license
-  - commit [ad3b4d8]
+  - commit [[ad3b4d8]](https://github.com/UBC-MDS/speed_dating_analysis/commit/ad3b4d8c97a3397d4ce083df57b2e731987a2bf4)
   - from feedback https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839718485
 
 - update dependencies: branch dependencies added to
-  - README [f8eb546]
+  - README [[f8eb546]](https://github.com/UBC-MDS/speed_dating_analysis/commit/f8eb546e1a3aaab5ff4d946ddd5c0ae9da64ce3c)
   - (not mentioned in the feedback from anyone, we still did it)
 
 - fix typo in CODE_OF_CONDUCT.md
-  - commit [0c3eabb981aab76d4aedb3c17a617fab972a7c53]
+  - commit [[0c3eabb981aab76d4aedb3c17a617fab972a7c53]](https://github.com/UBC-MDS/speed_dating_analysis/commit/0c3eabb981aab76d4aedb3c17a617fab972a7c53)
   - from feedback https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1841769787
 
 - fix link in CONTRIBUTING.md:
-  - commit [250ec927c0ecf515f46625200d1bdfad9f89e391] and [11bbb47bcd2a516f0ff278d9ccf0d0c897736adc]
+  - commit [[250ec927c0ecf515f46625200d1bdfad9f89e391]](https://github.com/UBC-MDS/speed_dating_analysis/commit/250ec927c0ecf515f46625200d1bdfad9f89e391) and [[11bbb47bcd2a516f0ff278d9ccf0d0c897736adc]](https://github.com/UBC-MDS/speed_dating_analysis/commit/11bbb47bcd2a516f0ff278d9ccf0d0c897736adc)
   - from feedback https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1841769787
 
 - Updated Readme with the makefile instructions
-  - [b84973d48c5455828457afa42a0138fa8e7b6630]
+  - commit: [[b84973d48c5455828457afa42a0138fa8e7b6630]](https://github.com/UBC-MDS/speed_dating_analysis/commit/b84973d48c5455828457afa42a0138fa8e7b6630)https://github.com/UBC-MDS/speed_dating_analysis/commit/b84973d48c5455828457afa42a0138fa8e7b6630
  
 

@@ -5,6 +5,8 @@
 #' The function does not take any input as we are only interested in isolating the self vs other
 #' ratings of these 5 attributes for comparison.
 #' 
+#' @param dat the raw data set to be cleaned
+#' 
 #' @return a tibble data frame with the participant id (pid) and 10 columns (5 for each self-rated
 #' attributes and 5 for each other-rated attributes)
 #' @export

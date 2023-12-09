@@ -9,7 +9,7 @@
 - changing the phrasing of running cells to knit the file, which was confusing earlier
   - feedback from: milestone 1 feedback
   - recorded change: https://github.com/UBC-MDS/speed_dating_analysis/pull/68
-<img width="332" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/f4562520-4d3d-43ee-94ee-094b7e7d9a86">
+    - <img width="332" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/f4562520-4d3d-43ee-94ee-094b7e7d9a86">
 
 - changing the readme file wording, we were given feedback we were not clear with how to open the project and activate renv
   - feedback from: milestone 1 feedback

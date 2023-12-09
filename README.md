@@ -20,7 +20,7 @@ A report of our analyses can be found [here](https://ubc-mds.github.io/speed_dat
 
 [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this github repository.
 
-#### Option 1: Running Analyses via Containers (Recommended)
+#### Running Analyses via Containers (Recommended)
 
 A containerized version of the analysis has been published to Dockerhub as a [Docker Image](https://hub.docker.com/repository/docker/wenyunie/dsci522-rocker-speed-dating/general) for the convenience of replicating the computational environment. Researchers who are interested in reproducing the analysis result or building further analysis upon it can make use of this image and replicate the computational environment by following the below steps:
 
@@ -55,41 +55,13 @@ To shut down the container, follow the following steps:
 docker compose down
 ```
 
-#### Option 2: Running Analyses on Your Local Environment
-
-While we highly recommend using a containerized solution to run the project so that the r package and system package depedencies can be easily reproduced. If the user continues to run with their local environment, renv package will be used for depedency control, there are several dependencies to be installed manually.
-
-1. Install R and Rstudio on the local computer.
-
-2. Install R package 'renv' for the purpose of r package depedency control. In any R session:
-   
-```
-install.packages('renv', repos = c(CRAN = 'https://cloud.r-project.org'))
-```
-
-3. When running this project for the first time, double click on the `speed_dating_analysis.Rproj` file and run the following code:
-
-```
-renv::restore()
-```
-
-You will be prompted to activate your renv environment. After that, retype `renv::restore()` again to download the necessary packages and dependencies for the project
-
-4. Within Rstudio's Terminal tab, run `make all`.  If the user insists on using their own local terminal, then the user would need to ensure that [pandoc](https://pandoc.org/installing.html) is installed on their local machine. The output analysis report (`analysis_report.html`) is located in the output folder
-
-5. To remove all the files and folder created with `make all`, run `make clear` in the terminal.
-
-
 ## Dependencies
 
 See the [renv.lock file](https://github.com/UBC-MDS/speed_dating_analysis/blob/main/renv.lock) for the dependencies.
 
-
 ## Developer Notes
 
 **Note 1:** If you would like to run only a portion or subset of the analyses, please open `Makefile` and selectively run the script commands in the root project folder in your terminal (if you are running the file locally) or the Rstudio Server terminal (if you are using a container).
-
-**Note 2:** If the you plan to use the containerized solution after using the renv file, please either deactivate renv first by entering `renv::deactivate()` in the console OR remove the `.Rprofile` file. Otherwise the activated .Rproj environment will be detected inside the container and overwrite the self-contained container environment.
 
 ### Running the Tests
 

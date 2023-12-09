@@ -40,3 +40,9 @@
 
 - Updated Readme with the makefile instructions
   - commit: [[b84973d48c5455828457afa42a0138fa8e7b6630]](https://github.com/UBC-MDS/speed_dating_analysis/commit/b84973d48c5455828457afa42a0138fa8e7b6630)
+ 
+- Removed unused references from README.md
+  - Feedback origin: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839914849
+  - Commit link: https://github.com/UBC-MDS/speed_dating_analysis/commit/f319cab4059e934292e515ae9a66d8f09e0cbe7f
+ 
+  

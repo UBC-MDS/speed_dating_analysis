@@ -14,13 +14,13 @@
 - changing the readme file wording, we were given feedback we were not clear with how to open the project and activate renv
   - feedback from: milestone 1 feedback
   - recorded change: https://github.com/UBC-MDS/speed_dating_analysis/pull/65
-<img width="327" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/52d094f0-1a9d-4c30-aaaf-2d5cf22c0054">
+    - <img width="327" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/52d094f0-1a9d-4c30-aaaf-2d5cf22c0054">
 
 - changing the readme file wording, we were given feedback we were not clear with how to open the project and activate renv
   - feedback from: milestone 2 feedback
   - recorded change:  https://github.com/UBC-MDS/speed_dating_analysis/pull/96
-<img width="303" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/87dddb92-56c3-4d45-8482-8409babae848">
-<img width="317" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/9637add1-7109-4360-acbd-de1c2756c64f">
+    - <img width="303" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/87dddb92-56c3-4d45-8482-8409babae848">
+    - <img width="317" alt="image" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/143786716/9637add1-7109-4360-acbd-de1c2756c64f">
 
 - updated license: branch update_license
   - commit [[ad3b4d8]](https://github.com/UBC-MDS/speed_dating_analysis/commit/ad3b4d8c97a3397d4ce083df57b2e731987a2bf4)
@@ -52,7 +52,7 @@
 - Added edge case for Pearson file
   - Commit link: https://github.com/UBC-MDS/speed_dating_analysis/commit/ae060fd6cd1ba580616e59a38eb97d0275e7f32a
   - Feedback origin: milestone feedback
-<img width="314" alt="Screenshot 2023-12-08 at 5 04 32 PM" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/125914446/da48e0b4-0954-4408-b92f-ec600e2f896f">
+    - <img width="314" alt="Screenshot 2023-12-08 at 5 04 32 PM" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/125914446/da48e0b4-0954-4408-b92f-ec600e2f896f">
 
 - Updated report to more explicitly mention the EDA we did for the analysis
   - Feedback 1: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839914849
@@ -67,8 +67,8 @@
   - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/21f2b3205b43c97c2d71d473c5c1ac4973eb0000
   - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/01d0b71dd20014e50830cd3b6186fee367e9ae4a
   - feedback from milestone 2 gradescope
-![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/c6fa0ce6-f56a-4c61-9f30-9573741fd9ea)
-![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/00901e63-28f0-41e3-8879-7c9652c1f165)
+    - ![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/c6fa0ce6-f56a-4c61-9f30-9573741fd9ea)
+    - ![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/00901e63-28f0-41e3-8879-7c9652c1f165)
 
 - Updated README's developer notes to include instructions for running tests
   - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/ff94063e1dc9da955d0a937d3ef4a1f674a3ca52

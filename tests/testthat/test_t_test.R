@@ -21,5 +21,8 @@ test_that("t test should return the correct test result", {
 test_that("t test should throw an error when columns not from the data frame 
           are passed to `data_frame` and `class_col` arguments", {
   expect_error(our_t_test(data, a))
-  expect_error(our_t_test(data, g, y))
 })
+
+test_that("t test should throw an error for this edge case", {
+  expect_error(our_t_test(data, g, y))
+  expect_error(our_t_test(data_edge, a, b))})

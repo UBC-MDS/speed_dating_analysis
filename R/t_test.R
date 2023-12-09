@@ -13,6 +13,15 @@ library(tidyverse)
 #' @examples
 #' our_t_test(mtcars, am, bm, version = 'diff')
 our_t_test<-function(data, col1, col2, version = 'diff'){
+  if(nrow(data) <= 1){
+    stop("Your data frame only has 1 row of data")
+  }
+  if (
+    sum(c(rlang::parse_expr(quo_name(enquo(col1))), rlang::parse_expr(quo_name(enquo(col2)))) %in% 
+        names(data))!=2
+  ){
+    stop("Check that you are using the correct data set!")
+  }
   if(version == 'diff'){
     data %>% 
       mutate(diff = {{col1}} - {{col2}}) %>%
@@ -22,3 +31,4 @@ our_t_test<-function(data, col1, col2, version = 'diff'){
            y = data %>% pull({{col2}}), alternative = 'two.sided', paired = TRUE, mu = 0)
   }
 }
+

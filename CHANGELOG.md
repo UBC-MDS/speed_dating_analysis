@@ -47,10 +47,10 @@
  
 - Made README.md file more understandable by reordering sections, rewording explanations and moving non-essential material to developers notes
   - Feedback origin: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839718485
-  - Commit link: a6a3c849877b423ed7244fe945675dd68ff9324a
+  - Commit link: https://github.com/UBC-MDS/speed_dating_analysis/commit/a6a3c849877b423ed7244fe945675dd68ff9324a
 
 - Added edge case for Pearson file
-  - Commit link: ae060fd6cd1ba580616e59a38eb97d0275e7f32a
+  - Commit link: https://github.com/UBC-MDS/speed_dating_analysis/commit/ae060fd6cd1ba580616e59a38eb97d0275e7f32a
   - Feedback origin: milestone feedback
 <img width="314" alt="Screenshot 2023-12-08 at 5 04 32 PM" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/125914446/da48e0b4-0954-4408-b92f-ec600e2f896f">
 
@@ -61,16 +61,16 @@
 - We have also now expanded on our motivation for conducting the test statistic and how it relates to our question of interest
   - Feedback 1: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839718485
   - Feedback 2: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1841769787
-  - commit: eb4fbd312dc4a6b5ec7ea79029b53c8c6016500a
+  - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/eb4fbd312dc4a6b5ec7ea79029b53c8c6016500a
 
 - Updated data cleaning function and tests to account for edge cases, and updated the changes according to the milestone 2 feedback; also updated the roxygen documentation as param was missing
-  - commit: 21f2b3205b43c97c2d71d473c5c1ac4973eb0000
-  - commit: 01d0b71dd20014e50830cd3b6186fee367e9ae4a
+  - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/21f2b3205b43c97c2d71d473c5c1ac4973eb0000
+  - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/01d0b71dd20014e50830cd3b6186fee367e9ae4a
   - feedback from milestone 2 gradescope
 ![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/c6fa0ce6-f56a-4c61-9f30-9573741fd9ea)
 ![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/00901e63-28f0-41e3-8879-7c9652c1f165)
 
 - Updated README's developer notes to include instructions for running tests
-  - commit: ff94063e1dc9da955d0a937d3ef4a1f674a3ca52
+  - commit: https://github.com/UBC-MDS/speed_dating_analysis/commit/ff94063e1dc9da955d0a937d3ef4a1f674a3ca52
   - feedback: ![image](https://github.com/UBC-MDS/speed_dating_analysis/assets/7615983/9ba854fe-e803-43a4-925b-0c85be444b86)
 

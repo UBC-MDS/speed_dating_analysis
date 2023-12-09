@@ -20,3 +20,5 @@ paired_test_statistic_output<-paired_test$statistic
 diff_test_statistic_output<-diff_test$statistic
 paired_test_p_output<-paired_test$p.value
 diff_test_p_output<-diff_test$p.value
+
+data_edge <- data.frame(a=1,b=2)

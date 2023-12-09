@@ -45,4 +45,11 @@
   - Feedback origin: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839914849
   - Commit link: https://github.com/UBC-MDS/speed_dating_analysis/commit/f319cab4059e934292e515ae9a66d8f09e0cbe7f
  
-  
+- Made README.md file more understandable by reordering sections, rewording explanations and moving non-essential material to developers notes
+  - Feedback origin: https://github.com/UBC-MDS/data-analysis-review-2023/issues/20#issuecomment-1839718485
+  - Commit link: a6a3c849877b423ed7244fe945675dd68ff9324a
+
+- Added edge case for Pearson file
+  - Commit link: ae060fd6cd1ba580616e59a38eb97d0275e7f32a
+  - Feedback origin: milestone feedback
+<img width="314" alt="Screenshot 2023-12-08 at 5 04 32 PM" src="https://github.com/UBC-MDS/speed_dating_analysis/assets/125914446/da48e0b4-0954-4408-b92f-ec600e2f896f">
